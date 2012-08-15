@@ -12,6 +12,11 @@ files="zshrc teamocil tmux.conf"    # list of files/folders to symlink in homedi
 
 ##########
 
+# install oh-my-zsh
+echo "Installing oh-my-zsh"
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+echo "...done"
+
 # grab the latest from git
 echo "Cloning latest version to $dir"
 git clone https://github.com/interstateone/dotfiles.git $dir
