@@ -8,10 +8,14 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 
 # Aliases
-alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
 alias gf="git fetch"
 alias gp="git push"
+
+export EDITOR="subl -w"
+eval "$(hub alias -s)"
+
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -35,11 +39,16 @@ plugins=(git ruby osx brew cake gem npm)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
 export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/X11/bin
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin #postgres
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH # rpm with homebrew
+export GOROOT=$HOME/go
+export GOPATH=$GOROOT:$HOME/Projects/todays-vote:$HOME/Projects/bufferapi:$HOME/Projects/translate
 
-EDITOR="subl -w"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+eval "$(rbenv init - zsh)"
+
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 function collapse_pwd {
@@ -56,11 +65,18 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%} in %{$fg[yellow]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)$(virtualenv_info) $(prompt_char) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+export PRO_BASE=$HOME/Projects/
+
+# pro cd function
+pd() {
+  local projDir=$(pro search $1)
+  cd ${projDir}
+}
