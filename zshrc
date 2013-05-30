@@ -7,15 +7,8 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="robbyrussell"
 
-# Aliases
-alias gf="git fetch"
-alias gp="git push"
-
 export EDITOR="subl -w"
 eval "$(hub alias -s)"
-
-alias zshconfig="$EDITOR ~/.zshrc"
-alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -46,6 +39,7 @@ export PATH=$HOME/.rbenv/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH # rpm with homebrew
 export GOROOT=$HOME/go
 export GOPATH=$GOROOT:$HOME/Projects/todays-vote:$HOME/Projects/bufferapi:$HOME/Projects/translate
+export ZSH_CUSTOM=$HOME/.zsh-custom
 
 eval "$(rbenv init - zsh)"
 
