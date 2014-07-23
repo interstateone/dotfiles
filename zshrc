@@ -29,8 +29,6 @@ export EDITOR="vim"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git ruby osx brew cake gem npm)
 
-source $ZSH/oh-my-zsh.sh
-
 export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/X11/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin #postgres
@@ -39,6 +37,8 @@ export PATH=/usr/local/share/npm/bin:$PATH # rpm with homebrew
 export GOROOT=$HOME/go
 export GOPATH=$GOROOT:$HOME/Projects/todays-vote:$HOME/Projects/bufferapi:$HOME/Projects/translate
 export ZSH_CUSTOM=$HOME/.zsh-custom
+
+source $ZSH/oh-my-zsh.sh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
