@@ -3,7 +3,13 @@ alias l='ls -GlA1'
 alias ll='ls -Gl'
 alias la='ls -GlA'
 alias gf='git fetch'
-alias gp="git push"
+alias gfp='git fetch --prune'
+alias gp='git push'
+alias gc='git checkout'
+alias gcn='git checkout -b'
+alias grb='git rebase'
+
+alias tiga='tig --all'
 
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
