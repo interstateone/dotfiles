@@ -8,7 +8,6 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 
 export EDITOR="subl -w"
-eval "$(hub alias -s)"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
