@@ -32,11 +32,16 @@ plugins=(git ruby osx brew cake gem npm)
 export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/X11/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/Applications/Postgres.app/Contents/MacOS/bin #postgres
+export PATH=$PATH:/usr/local/bin/Sencha/Cmd/4.0.4.84
 export PATH=$HOME/.rbenv/bin:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH # rpm with homebrew
-export GOROOT=$HOME/go
-export GOPATH=$GOROOT:$HOME/Projects/todays-vote:$HOME/Projects/bufferapi:$HOME/Projects/translate
+export PATH=/usr/local/share/npm/bin:$PATH # npm with homebrew
+export PATH=$PATH:/usr/local/lib
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/Projects/go
+export PATH=$PATH:$GOPATH/bin
 export ZSH_CUSTOM=$HOME/.zsh-custom
+export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
 
 source $ZSH/oh-my-zsh.sh
 
