@@ -41,7 +41,7 @@ export GOROOT=$HOME/go
 export GOPATH=$GOROOT:$HOME/Projects/todays-vote:$HOME/Projects/bufferapi:$HOME/Projects/translate
 export ZSH_CUSTOM=$HOME/.zsh-custom
 
-eval "$(rbenv init - zsh)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
