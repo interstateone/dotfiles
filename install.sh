@@ -19,7 +19,7 @@ echo "...done"
 
 # grab the latest from git
 echo "Cloning latest version to $dir"
-git clone https://github.com/interstateone/dotfiles.git $dir
+git clone git@github.com:interstateone/dotfiles.git $dir
 echo "...done"
 
 # create dotfiles_old in homedir
