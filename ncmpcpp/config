@@ -1,0 +1,7 @@
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_music_dir = "~/Music/mpd"
+
+allow_for_physical_item_deletion = yes
+def_key "delete"
+  delete_browser_items

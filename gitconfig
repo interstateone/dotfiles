@@ -1,0 +1,17 @@
+[push]
+	default = current
+[github]
+	user = interstateone
+[ghi]
+	token = !security find-internet-password -a  -s github.com -l 'ghi token' -w
+[core]
+	excludesfile = /Users/brandon/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Brandon Evans
+	email = brandon@brandonevans.ca

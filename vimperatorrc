@@ -1,0 +1,7 @@
+set defsearch=google
+set gui=nonavigation
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase

@@ -1,0 +1,79 @@
+[general]
+ui = TTY.TTYUI
+accounts = BrandonEvans, RobotsAndPencils
+pythonfile=~/.mutt/offlineimap.py
+fsync = False
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(foldername)s"
+sep = "\nmailboxes "
+footer = "\n"
+
+[Account BrandonEvans]
+localrepository = BrandonEvans-Local
+remoterepository = BrandonEvans-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository BrandonEvans-Local]
+type = Maildir
+localfolders = ~/.mail/brandon-brandonevans.ca
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                            'Archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository BrandonEvans-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = brandon@brandonevans.ca
+remotepasseval = get_keychain_pass(account="brandon@brandonevans.ca", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'Archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
+
+[Account RobotsAndPencils]
+localrepository = RobotsAndPencils-Local
+remoterepository = RobotsAndPencils-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository RobotsAndPencils-Local]
+type = Maildir
+localfolders = ~/.mail/brandon.evans-robotsandpencils.com
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                            'Archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository RobotsAndPencils-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = brandon.evans@robotsandpencils.com
+remotepasseval = get_keychain_pass(account="brandon.evans@robotsandpencils.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'Archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
