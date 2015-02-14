@@ -27,7 +27,7 @@ export EDITOR="vim"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby osx brew cake gem npm)
+plugins=(git ruby osx brew cake gem npm xcode)
 
 export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/X11/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -78,3 +78,9 @@ pd() {
   local projDir=$(pro search $1)
   cd ${projDir}
 }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# Makes GPG work correctly with Keybase's verification command (which otherwise fails to ask for a passphrase)
+export GPG_TTY=`tty`

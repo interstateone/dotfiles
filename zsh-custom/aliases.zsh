@@ -9,12 +9,22 @@ alias gc='git checkout'
 alias gcn='git checkout -b'
 alias grb='git rebase'
 
+alias pr='hub pull-request'
+
+alias pi='pod install'
+alias pu='pod update'
+
 alias tiga='tig --all'
 
 alias zshconfig="$EDITOR ~/.zshrc"
+alias reload="source ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
 alias tmux="tmux -2"
 alias cleanup="git branch --merged | xargs git branch -d"
 
 alias rake='noglob rake'
+
+alias gpg='gpg2'
+
+alias htop='sudo htop'
