@@ -1,4 +1,11 @@
 # Dotfiles
 
-Install on a new machine with:
-`curl -L bit.ly/thedotfiles | sh`
+`git clone git@github.com:interstateone/dotfiles.git && cd dotfiles`
+
+Use GNU Stow to manage the installation of configuration packages.
+
+`brew install stow`
+
+Then use stow to symlink packages.
+
+`stow --ignore=.DS_Store git`
