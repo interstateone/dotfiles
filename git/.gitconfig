@@ -2,8 +2,6 @@
 	default = current
 [github]
 	user = interstateone
-[ghi]
-	token = !security find-internet-password -a  -s github.com -l 'ghi token' -w
 [core]
 	excludesfile = /Users/brandon/.gitignore_global
 [difftool "sourcetree"]
@@ -15,3 +13,14 @@
 [user]
 	name = Brandon Evans
 	email = brandon@brandonevans.ca
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[rebase]
+	autostash = true
+	autosquash = true
+[ghi]
+	token = !security find-internet-password -a interstateone -s github.com -l 'ghi token' -w
+[diff "plist"]
+	textconv = plutil -convert xml1 -o -
