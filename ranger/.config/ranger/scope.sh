@@ -59,6 +59,8 @@ case "$extension" in
     # BitTorrent Files
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
+    md|mdown|markdown)
+        try mdless "$path" && { dump | trim; exit 0; } || exit 1;;
     # HTML Pages:
     htm|html|xhtml)
         try w3m    -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
