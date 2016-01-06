@@ -27,7 +27,7 @@ export EDITOR="vim"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git ruby osx brew cake gem npm xcode)
+plugins=(git ruby osx brew cake gem npm xcode tmux terminalapp)
 
 export PATH=/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/usr/X11/bin
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -42,6 +42,9 @@ export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
 export ZSH_CUSTOM=$HOME/.zsh-custom
 export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,9 +66,9 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-PROMPT='%{$fg[yellow]%}$(collapse_pwd)%{$reset_color%}$(git_prompt_info)$(virtualenv_info) $(prompt_char) '
+PROMPT=$'%{$fg[blue]%}$(collapse_pwd)%{$reset_color%}\n%{$fg[yellow]%}❯%{$reset_color%} $(git_prompt_info)$(virtualenv_info) $(prompt_char) '
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
@@ -85,7 +88,14 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Makes GPG work correctly with Keybase's verification command (which otherwise fails to ask for a passphrase)
 export GPG_TTY=`tty`
 
-autoload -U promptinit && promptinit
-prompt pure
-
-
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
