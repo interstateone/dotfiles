@@ -28,3 +28,5 @@ alias gpg='gpg2'
 alias htop='sudo htop'
 
 alias stow='stow --ignore=.DS_Store'
+
+alias r='ranger'
