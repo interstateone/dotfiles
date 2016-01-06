@@ -1,4 +1,10 @@
 {
+    "layouts": [
+        "fullscreen",
+        "tall-right",
+        "columns",
+        "wide"
+    ],
     "floating": [
         "com.apple.systempreferences",
         "com.apple.iphonesimulator",
