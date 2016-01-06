@@ -95,15 +95,22 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Leader
+let mapleader= "\<Space>"
+let maplocalleader= "\<Space>"
 " Move up and down directly, not linewise
 :nmap j gj
 :nmap k gk
 
 " Clear search highlight
-:nmap \q :nohlsearch<CR>
+:nmap <leader>q :nohlsearch<CR>
 
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
+" Navigate splits without <C-W> prefix
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -123,7 +130,10 @@ set autoindent
 " Apply substitutions globally
 set gdefault
 
+" Investigate
 let g:investigate_use_dash=1
+let g:investigate_dash_for_swift="objc"
+nnoremap <leader>d :call investigate#Investigate()<CR>
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
@@ -133,10 +143,12 @@ let g:gitgutter_realtime = 0
 " Force setting for *.md files. More info:
 " https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd FileType swift compiler xcodebuild
+autocmd FileType objc compiler xcodebuild
 
 " clang_complete
 " Disable auto completion, always <c-x> <c-o> to complete
-let g:clang_complete_auto = 0 
+let g:clang_complete_auto = 1
 let g:clang_use_library = 1
 let g:clang_periodic_quickfix = 0
 let g:clang_close_preview = 1
@@ -154,8 +166,41 @@ let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchain
 
 set shell=/bin/bash
 
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  " bind K to grep word under cursor
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+endif
+
+let g:ctrlp_extensions = ['iOSSim']
+
 """""""""""""""""""""""""""""
 " Custom Commands
 """""""""""""""""""""""""""""
 
 :command SquashAll 2,$s/^pick/squash/g
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+let g:rspec_command = "Dispatch rspec {spec}"
+
+let g:xcodebuild_run_command = "call dispatch#compile_command(0, '{cmd}', 11)"
+:nnoremap gr :grep <cword> *<CR>
