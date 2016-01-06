@@ -10,9 +10,11 @@ image/gif; ~/.mutt/view_attachment.sh %s gif
 
 # PDFs
 application/pdf; ~/.mutt/view_attachment.sh %s pdf
+image/pdf; ~/.mutt/view_attachment.sh %s pdf
 
 # HTML
 text/html; ~/.mutt/view_attachment.sh %s html
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
+text/plain; ~/.mutt/view_attachment.sh %s "-"
