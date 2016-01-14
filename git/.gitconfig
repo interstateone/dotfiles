@@ -1,3 +1,5 @@
+[init]
+    templatedir = ~/.git_template
 [push]
 	default = current
 [github]
@@ -24,3 +26,5 @@
 	token = !security find-internet-password -a interstateone -s github.com -l 'ghi token' -w
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
+[alias]
+    ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
