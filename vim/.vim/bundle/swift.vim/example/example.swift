@@ -6,9 +6,14 @@ let foo = 5 // another comment
 
 /* this is also a comment */
 
+// If statements so the indented comments are valid
+if foo {
     /* this is an indented comment */
+}
 
+if foo {
     /* this is a multi level indented comment /* you know */ */
+}
 
 // comments check splelling
 
@@ -37,7 +42,9 @@ comment
 
 // MARK: this is a marker
 
+if foo {
     // this is a indented comment
+}
 
 5 // int
 
@@ -60,6 +67,17 @@ comment
 
 0o567 // octal
 0o5689 // broken octal
+
+1_000_000                // underscore separated million
+1_000_0000_              // broken underscore separated number
+1_000_0000.              // broken underscore separated float
+1_000_000.000_000_1      // just over one million
+1_18181888_2.1.1         // broken underscore padded double
+1_18181888_2.1           // valid according to swift repl
+1_0_0                    // valid 100
+1_0_000.2                // valid 10000.2
+1_____0.2________20___2  // also valid 10.2202
+4__3.2_33_33             // valid 43.233
 
 // Operators
 ~
@@ -155,7 +173,7 @@ enum Card : Int {
 struct foo : bar {
     switch (foo) {
     case foo:
-      foo
+        foo
     case bar:
     default:
         stuff
@@ -187,7 +205,7 @@ struct ArgumentList {
     var arguments: String[]
 
     init(argv: UnsafePointer<CString>,
-         count: CInt)
+        count: CInt)
     {
         foo
     }
@@ -213,9 +231,9 @@ func simpleDescription() -> String {
 
 let library = [
     Movie(name: "foo bar",
-          dfasdfsdfdirector: "someone",
-          foo: "bar",
-          bazzzer: "qux")
+        dfasdfsdfdirector: "someone",
+        foo: "bar",
+        bazzzer: "qux")
 ]
 
 
@@ -230,39 +248,98 @@ class MainViewController: UIViewController, UITableViewDataSource {}
 
 @IBAction func changePostFilter(sender: UISegmentedControl) {}
 override func prepareForSegue(segue: UIStoryboardSegue,
-                              sender: AnyObject) {}
+   sender: AnyObject) {}
 override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {}
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {}
 lazy var foo : String
 
 #if foo
-    bar
+bar
 #elseif baz
-    qux
+qux
 #else
-    quix
+quix
 #endif
 
 client.host = "example.com"
 client.pathPrefix = "/foo/"
 
+@available(*, unavailable, renamed="bar", introduced=1.0, deprecated=2.2, message="hi")
 func foo () {
-  override func loadView() {
-    super.loadView()
-    if foo {
-      foobar
+    override func loadView() {
+        super.loadView()
+        if foo {
+            foobar
+        }
     }
-  }
 }
 
 let foo = CGRectMake(0, (5 - 2),
-                     100,
-                     200)
+    100, 200)
 
 
 let dict = [
-  "foo": "Bar",
-  "nest": [
-    "fadsf",
-  ],
+    "foo": "Bar",
+    "nest": [
+        "fadsf",
+    ]
 ]
+
+if #available(OSX 10.10.3, *) {
+    // Use APIs OS X 10.10.3 and onwards
+}
+if #available(watchOS 2, iOS 9.0, OSX 10.11, *) {
+    // APIs available to watchOS 2.0, iOS 9.0, OSX 10.11 and onwards
+}
+
+// Tests backslashes in strings
+"\\".uppercaseString()
+"foo \(1 + 1)"
+string.rangeOfString("^/Date\\(")
+
+public var `extension`: String?
+
+/**
+This is the comment body
+
+- parameter first: The first parameter
+- Parameter first: The first parameter
+
+- returns: Some value
+*/
+
+public let fareEstimate: FareEstimate //= (nil, nil) // comment should be highlighted as comment
+
+// optionalFrom should be highlighted the same way
+// Operator should also be highlighted
+key = map.optionalFrom("string") ?? []
+key = map.optionalFrom("string")
+thing = map.optionalFrom("string") ?? .Fallback
+
+// This should not break all highlighting
+print("Copying \(NSProcessInfo().environment["SCRIPT_INPUT_FILE_\(index)"]!)")
+
+// This is multiline garbage
+"foo
+bar
+baz"
+
+guard let path = NSBundle.mainBundle().pathForResource(imageName, ofType: "png"),
+let data = NSData(contentsOfFile: path),
+let data = NSData(contentsOfFile: path) else
+{
+}
+
+UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+    view.backgroundColor = UIColor.redColor()
+}) { finished in
+    print("indent?")
+}
+
+// Indent last line should hold
+self.init(className: "Item", dictionary: [
+    "identifier": item.identifier,
+    "title": item.title,
+    "link": item.link,
+    "date": item.date,
+    "summary": item.summary])
