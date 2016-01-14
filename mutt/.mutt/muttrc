@@ -142,6 +142,7 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 set sendmail_wait = 0
+set sendmail="<shell-escape>~/bin/sendmail_muttqt.sh<enter>"
 unset record
 
 macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
@@ -149,7 +150,7 @@ macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-
 bind compose p postpone-message
 bind index p recall-message
 
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+set query_command="/usr/local/bin/muttqt -q '%s'"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
