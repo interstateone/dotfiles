@@ -181,7 +181,32 @@ if executable('ag')
   nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
 
-let g:ctrlp_extensions = ['iOSSim']
+let g:ctrlp_extensions = ['iOSSim', 'tag']
+let g:ctrlp_cmd = 'CtrlPMixed'
+nnoremap <Leader>r :CtrlPTag<cr>
+
+" ctags optimization
+set autochdir
+set tags=tags;
+
+" tagbar
+nnoremap <Leader>t :TagbarToggle<CR>
+let g:tagbar_type_swift = {
+  \ 'ctagstype': 'swift',
+  \ 'kinds' : [
+    \ 'c:Classes',
+    \ 's:Structs',
+    \ 'n:Enums',
+    \ 'p:Protocols',
+    \ 'e:Extensions',
+    \ 't:Typealiases',
+    \ 'f:Functions',
+    \ 'v:Variables'
+  \ ],
+  \ 'sort' : 0
+\ }
+
+set paste
 
 """""""""""""""""""""""""""""
 " Custom Commands
