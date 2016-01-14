@@ -29,7 +29,7 @@ unset strict_threads
 # Sidebar Patch --------------------------------------
 set sidebar_delim     = '  ⎸'
 set sidebar_visible   = yes
-set sidebar_width     = 24
+set sidebar_width     = 40
 color sidebar_new yellow black
 
 # Status Bar -----------------------------------------
