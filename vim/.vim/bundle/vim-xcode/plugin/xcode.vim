@@ -1,5 +1,8 @@
 command! XBuild call <sid>build()
 command! XTest call <sid>test()
+command! XClean call <sid>clean()
+command! -nargs=? -complete=file XOpen call <sid>open("<args>")
+command! -nargs=1 -complete=file XSwitch call <sid>switch("<args>")
 command! -nargs=1 XSelectScheme call <sid>set_scheme("<args>")
 
 let s:default_run_command = '! {cmd}'
@@ -18,16 +21,38 @@ endfunction
 
 function! s:build()
   if s:assert_project()
-    let cmd = s:base_command()  . s:xcpretty()
+    let cmd = s:base_command() . ' ' . s:destination() . s:xcpretty()
     call s:run_command(cmd)
   endif
 endfunction
 
 function! s:test()
   if s:assert_project()
-    let cmd =  s:base_command() . ' ' . s:sdk() . ' test' . s:xcpretty_test()
+    let cmd =  s:base_command() . ' ' . s:test_destination() . ' test' . s:xcpretty_test()
     call s:run_command(cmd)
   endif
+endfunction
+
+function! s:clean()
+  if s:assert_project()
+    let cmd = s:base_command() . ' clean' . s:xcpretty()
+    call s:run_command(cmd)
+  endif
+endfunction
+
+function! s:open(path)
+  if s:assert_project()
+    if empty(a:path)
+      let file_path = "."
+    else
+      let file_path = a:path
+    endif
+    call system('source ' . s:bin_script('open_project.sh') . s:cli_args(file_path))
+  endif
+endfunction
+
+function! s:switch(target)
+  execute '!sudo xcode-select -s' . s:cli_args(a:target)
 endfunction
 
 function! s:set_scheme(scheme)
@@ -50,15 +75,15 @@ function! s:assert_project()
 endfunction
 
 function! s:base_command()
-  return 'xcodebuild ' . s:build_target() . ' ' . s:scheme()
+  return 'xcodebuild NSUnbufferedIO=YES ' . s:build_target() . ' ' . s:scheme()
 endfunction
 
 function! s:build_target()
   let xcworkspaceFile = glob('*.xcworkspace')
   if empty(xcworkspaceFile)
-    return '-project ' . s:project_file()
+    return '-project' . s:cli_args(s:project_file())
   else
-    return '-workspace ' . xcworkspaceFile
+    return '-workspace' . s:cli_args(xcworkspaceFile)
   endif
 endfunction
 
@@ -67,7 +92,7 @@ function! s:project_file()
 endfunction
 
 function! s:scheme()
-  return '-scheme '. s:scheme_name()
+  return '-scheme'. s:cli_args(s:scheme_name())
 endfunction
 
 function! s:scheme_name()
@@ -78,22 +103,38 @@ function! s:scheme_name()
   return s:chosen_scheme
 endfunction
 
-function! s:sdk()
+function! s:use_simulator()
   if !exists('s:use_simulator')
     call system('source ' . s:bin_script('use_simulator.sh') . s:cli_args(s:project_file(), s:scheme_name()))
     let s:use_simulator = !v:shell_error
   endif
 
-  if s:use_simulator
-    return '-sdk iphonesimulator'
+  return s:use_simulator
+endfunction
+
+function! s:destination()
+  if s:use_simulator()
+    return '-destination "generic/platform=iOS"'
   else
-    return '-sdk macosx'
+    return s:osx_destination()
   endif
 endfunction
 
+function! s:test_destination()
+  if s:use_simulator()
+    return '-destination "platform=iOS Simulator,name=iPhone 6"'
+  else
+    return s:osx_destination()
+  endif
+endfunction
+
+function! s:osx_destination()
+  return '-destination "platform=OS X"'
+endfunction
+
 function! s:runner_template()
-  if exists('g:xcodebuild_run_command')
-    return g:xcodebuild_run_command
+  if exists('g:xcode_run_command')
+    return g:xcode_run_command
   else
     return s:default_run_command
   endif
@@ -117,16 +158,16 @@ function! s:xcpretty_test()
 endfunction
 
 function! s:xcpretty_flags()
-  if exists('g:xcodebuild_xcpretty_flags')
-    return g:xcodebuild_xcpretty_flags
+  if exists('g:xcode_xcpretty_flags')
+    return g:xcode_xcpretty_flags
   else
     return s:default_xcpretty_flags
   endif
 endfunction
 
 function! s:xcpretty_testing_flags()
-  if exists('g:xcodebuild_xcpretty_testing_flags')
-    return g:xcodebuild_xcpretty_testing_flags
+  if exists('g:xcode_xcpretty_testing_flags')
+    return g:xcode_xcpretty_testing_flags
   else
     return s:default_xcpretty_testing_flags
   endif
