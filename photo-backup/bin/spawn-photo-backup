@@ -1,0 +1,12 @@
+#!/bin/bash
+
+volume="/Volumes/Photo Storage" 
+
+if [[ -d "$volume" ]]; then
+    open -Wna Terminal.app ~/bin/backup-photos
+
+    diskutil unmount "$volume"
+
+    echo "Photo Library Backup Complete"
+    /usr/bin/osascript -e 'display notification with title "Photo Library Backup Complete"'    
+fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+file="Photos Library.photoslibrary"
+path="/Users/brandon/Pictures/$file"
+
+read -r -p "Do you want to backup $file to the Photo Storage volume? [y/N] " response
+
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ && -d "$path" ]]; then
+    rsync -av --delete --info=progress2 $path "/Volumes/Photo Storage/$file"
+fi
