@@ -9,5 +9,7 @@
         "com.apple.systempreferences",
         "com.apple.iphonesimulator",
         "com.robotsandpencils.PencilCaseAuthor"
-    ]
+    ],
+    "window-margin-size": 20,
+    "window-margins": true
 }
