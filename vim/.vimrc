@@ -34,6 +34,13 @@ set cmdheight=2
 " A buffer becomes hidden when it is abandoned
 set hid
 
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
