@@ -162,11 +162,7 @@ macro index,pager ut <tag-thread><limit>~T<enter><tag-thread> "show only current
 macro index,pager ua <limit>all<enter> "show everything"
 macro index,pager uu <limit>~U<enter> "show unread"
 
-macro index S \
-  "<enter-command>unset wait_key<enter>\
-  <shell-escape>ag-mail<enter>\
-  <change-folder-readonly>+temporary/search<enter>" \
-  "search mail using ag-mail"
+macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 
 # Colors ----------------------------------------------------
 
