@@ -5,3 +5,11 @@ mpd_music_dir = "~/Music/mpd"
 allow_for_physical_item_deletion = yes
 def_key "delete"
   delete_browser_items
+
+header_visibility = "no"
+titles_visibility = "no"
+
+song_columns_list_format = "(8f)[red]{l} (40)[default]{t|f} (25)[yellow]{a} (30)[blue]{b}"
+song_status_format = "$8%t $1– $4%a $1–{ $5%b $1– }$0"
+song_window_title_format = "%t – %a – %b"
+progressbar_look = "─╼╌"
