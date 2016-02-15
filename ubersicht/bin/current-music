@@ -1,0 +1,18 @@
+#!/bin/bash
+
+mpc_playing=$(/usr/local/bin/mpc status | grep 'playing')
+itunes_playing=$(osascript -e 'tell app "iTunes" to return player state is playing')
+
+if [[ $mpc_playing ]]; then
+    echo $(/usr/local/bin/mpc current -f "%artist% - %title%")
+elif [[ $itunes_playing == 'true' ]]; then
+    artist=$(osascript -e 'tell app "iTunes" to return artist of current track' &>/dev/null)
+    artist_exit=$?
+    title=$(osascript -e 'tell app "iTunes" to return name of current track' &>/dev/null)
+    title_exit=$?
+    if [[ $artist_exit != 0 || $title_exit != 0 ]]; then
+        echo "Apple Music"
+    else
+        echo "$artist - $title"
+    fi
+fi

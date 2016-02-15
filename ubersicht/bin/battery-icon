@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source "$CURRENT_DIR/battery.sh"
+
+# script global variables
+charged_icon="🔋"
+charging_icon="⚡️"
+attached_icon="⚠️"
+discharging_icon=""
+
+print_icon() {
+    local status=$1
+    if [[ $status =~ (charged) ]]; then
+        printf "$charged_icon"
+    elif [[ $status =~ (^charging) ]]; then
+        printf "$charging_icon"
+    elif [[ $status =~ (^discharging) ]]; then
+        echo "$discharging_icon"
+    elif [[ $status =~ (attached) ]]; then
+        printf "$attached_icon"
+    fi
+}
+
+main() {
+    local status=$(battery_status)
+    print_icon "$status"
+}
+main
