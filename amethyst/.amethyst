@@ -10,6 +10,9 @@
         "com.apple.iphonesimulator",
         "com.robotsandpencils.PencilCaseAuthor"
     ],
+    "screen-margins": {
+        "top": 20
+    },
     "window-margin-size": 20,
     "window-margins": true
 }
