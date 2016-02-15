@@ -25,7 +25,7 @@ alias rake='noglob rake'
 
 alias gpg='gpg2'
 
-alias htop='sudo htop'
+alias top='htop'
 
 alias stow='stow --ignore=.DS_Store'
 
