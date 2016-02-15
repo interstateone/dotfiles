@@ -8,5 +8,5 @@ if [[ -d "$volume" ]]; then
     diskutil unmount "$volume"
 
     echo "Photo Library Backup Complete"
-    /usr/bin/osascript -e 'display notification with title "Photo Library Backup Complete"'    
+    /usr/bin/osascript -e 'display notification "You can now disconnect the backup drive." with title "Photo Library Backup Complete"'
 fi
