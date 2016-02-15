@@ -143,8 +143,34 @@ let g:gitgutter_realtime = 0
 " Force setting for *.md files. More info:
 " https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd FileType swift compiler xcodebuild
-autocmd FileType objc compiler xcodebuild
+
+" Xcode
+" autocmd FileType swift compiler xcodebuild
+" autocmd FileType objc compiler xcodebuild
+autocmd FileType objc set efm=
+    \%f:%l:%c:{%*[^}]}:\ error:\ %m,
+    \%f:%l:%c:{%*[^}]}:\ fatal\ error:\ %m,
+    \%f:%l:%c:{%*[^}]}:\ warning:\ %m,
+    \%f:%l:%c:\ error:\ %m,
+    \%f:%l:%c:\ fatal\ error:\ %m,
+    \%f:%l:%c:\ warning:\ %m,
+    \%f:%l:\ Error:\ %m,
+    \%f:%l:\ error:\ %m,
+    \%f:%l:\ fatal\ error:\ %m,
+    \%f:%l:\ warning:\ %m
+autocmd Filetype swift set efm=
+    \%f:%l:%c:{%*[^}]}:\ error:\ %m,
+    \%f:%l:%c:{%*[^}]}:\ fatal\ error:\ %m,
+    \%f:%l:%c:{%*[^}]}:\ warning:\ %m,
+    \%f:%l:%c:\ error:\ %m,
+    \%f:%l:%c:\ fatal\ error:\ %m,
+    \%f:%l:%c:\ warning:\ %m,
+    \%f:%l:\ Error:\ %m,
+    \%f:%l:\ error:\ %m,
+    \%f:%l:\ fatal\ error:\ %m,
+    \%f:%l:\ warning:\ %m
+let g:xcode_run_command = 'Dispatch {cmd}'
+
 " Spell checking
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
