@@ -145,6 +145,12 @@ let g:gitgutter_realtime = 0
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType swift compiler xcodebuild
 autocmd FileType objc compiler xcodebuild
+" Spell checking
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+set spelllang=en_us
+set spellfile=$HOME/.vim-spell-en.utf-8.add
 
 " clang_complete
 " Disable auto completion, always <c-x> <c-o> to complete
