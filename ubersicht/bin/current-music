@@ -1,7 +1,13 @@
 #!/bin/bash
 
 mpc_playing=$(/usr/local/bin/mpc status | grep 'playing')
-itunes_playing=$(osascript -e 'tell app "iTunes" to return player state is playing')
+itunes_playing=$(osascript -e '
+	if application "iTunes" is running then
+		tell app "iTunes" to return player state is playing
+	else
+		return false
+	end if
+')
 
 if [[ $mpc_playing ]]; then
     echo $(/usr/local/bin/mpc current -f "%artist% - %title%")
