@@ -1,0 +1,75 @@
+[submodule "vim/.vim/pack/plugins/start/ack.vim"]
+	path = vim/.vim/pack/plugins/start/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
+[submodule "vim/.vim/pack/plugins/start/ctrlp.vim"]
+	path = vim/.vim/pack/plugins/start/ctrlp.vim
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "vim/.vim/pack/plugins/start/investigate.vim"]
+	path = vim/.vim/pack/plugins/start/investigate.vim
+	url = git@github.com:keith/investigate.vim.git
+[submodule "vim/.vim/pack/plugins/start/vim-markify"]
+	path = vim/.vim/pack/plugins/start/vim-markify
+	url = git@github.com:dhruvasagar/vim-markify.git
+[submodule "vim/.vim/pack/plugins/start/vim-mustache-handlebars"]
+	path = vim/.vim/pack/plugins/start/vim-mustache-handlebars
+	url = git@github.com:mustache/vim-mustache-handlebars.git
+[submodule "vim/.vim/pack/plugins/start/vim-signature"]
+	path = vim/.vim/pack/plugins/start/vim-signature
+	url = git@github.com:kshenoy/vim-signature.git
+[submodule "vim/.vim/pack/plugins/start/swift.vim"]
+	path = vim/.vim/pack/plugins/start/swift.vim
+	url = git@github.com:keith/swift.vim.git
+[submodule "vim/.vim/pack/plugins/start/tagbar"]
+	path = vim/.vim/pack/plugins/start/tagbar
+	url = git@github.com:majutsushi/tagbar.git
+[submodule "vim/.vim/pack/plugins/start/todo.txt-vim"]
+	path = vim/.vim/pack/plugins/start/todo.txt-vim
+	url = git@github.com:freitass/todo.txt-vim.git
+[submodule "vim/.vim/pack/plugins/start/ultisnips"]
+	path = vim/.vim/pack/plugins/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule "vim/.vim/pack/plugins/start/vim-carthage"]
+	path = vim/.vim/pack/plugins/start/vim-carthage
+	url = git@github.com:cfdrake/vim-carthage.git
+[submodule "vim/.vim/pack/plugins/start/vim-commentary"]
+	path = vim/.vim/pack/plugins/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "vim/.vim/pack/plugins/start/vim-dispatch"]
+	path = vim/.vim/pack/plugins/start/vim-dispatch
+	url = git@github.com:tpope/vim-dispatch.git
+[submodule "vim/.vim/pack/plugins/start/vim-fugitive"]
+	path = vim/.vim/pack/plugins/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/.vim/pack/plugins/start/vim-gitgutter"]
+	path = vim/.vim/pack/plugins/start/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
+[submodule "vim/.vim/pack/plugins/start/vim-go"]
+	path = vim/.vim/pack/plugins/start/vim-go
+	url = git@github.com:fatih/vim-go.git
+[submodule "vim/.vim/pack/plugins/start/vim-livedown"]
+	path = vim/.vim/pack/plugins/start/vim-livedown
+	url = git@github.com:shime/vim-livedown.git
+[submodule "vim/.vim/pack/plugins/start/vim-ragtag"]
+	path = vim/.vim/pack/plugins/start/vim-ragtag
+	url = git@github.com:tpope/vim-ragtag.git
+[submodule "vim/.vim/pack/plugins/start/vim-repeat"]
+	path = vim/.vim/pack/plugins/start/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/.vim/pack/plugins/start/vim-rspec"]
+	path = vim/.vim/pack/plugins/start/vim-rspec
+	url = git@github.com:thoughtbot/vim-rspec.git
+[submodule "vim/.vim/pack/plugins/start/vim-surround"]
+	path = vim/.vim/pack/plugins/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/.vim/pack/plugins/start/vim-titlecase"]
+	path = vim/.vim/pack/plugins/start/vim-titlecase
+	url = git@github.com:christoomey/vim-titlecase.git
+[submodule "vim/.vim/pack/plugins/start/vim-tmux-focus-events"]
+	path = vim/.vim/pack/plugins/start/vim-tmux-focus-events
+	url = git@github.com:tmux-plugins/vim-tmux-focus-events.git
+[submodule "vim/.vim/pack/plugins/start/vim-unimpaired"]
+	path = vim/.vim/pack/plugins/start/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "vim/.vim/pack/plugins/start/vim-xcode"]
+	path = vim/.vim/pack/plugins/start/vim-xcode
+	url = git@github.com:gfontenot/vim-xcode.git
