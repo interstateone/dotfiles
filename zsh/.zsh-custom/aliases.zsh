@@ -31,3 +31,4 @@ alias top='htop'
 alias stow='stow --ignore=.DS_Store'
 
 alias r='ranger'
+alias n='ncmpcpp'
