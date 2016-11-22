@@ -6,5 +6,6 @@ path="/Users/brandon/Pictures/$file"
 read -r -p "Do you want to backup $file to the Photo Storage volume? [y/N] " response
 
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ && -d "$path" ]]; then
-    rsync -av --delete --info=progress2 "$path" "/Volumes/Photo Storage/"
+    rsync -av --delete "$path" "/Volumes/Photo Storage/"
+    rsync -av --delete "/Users/brandon/Pictures/Lightroom" "/Volumes/Photo Storage/"
 fi
