@@ -73,3 +73,12 @@
 [submodule "vim/.vim/pack/plugins/start/vim-xcode"]
 	path = vim/.vim/pack/plugins/start/vim-xcode
 	url = git@github.com:gfontenot/vim-xcode.git
+[submodule "vim/.vim/pack/plugins/start/scalpel"]
+	path = vim/.vim/pack/plugins/start/scalpel
+	url = git@github.com:wincent/scalpel.git
+[submodule "vim/.vim/pack/plugins/start/ferret"]
+	path = vim/.vim/pack/plugins/start/ferret
+	url = git@github.com:wincent/ferret.git
+[submodule "vim/.vim/pack/plugins/start/terminus"]
+	path = vim/.vim/pack/plugins/start/terminus
+	url = git@github.com:wincent/terminus.git
