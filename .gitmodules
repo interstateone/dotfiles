@@ -82,3 +82,9 @@
 [submodule "vim/.vim/pack/plugins/start/terminus"]
 	path = vim/.vim/pack/plugins/start/terminus
 	url = git@github.com:wincent/terminus.git
+[submodule "vim/.vim/pack/plugins/start/vim-fireplace"]
+	path = vim/.vim/pack/plugins/start/vim-fireplace
+	url = git@github.com:tpope/vim-fireplace.git
+[submodule "vim/.vim/pack/plugins/start/vim-salve"]
+	path = vim/.vim/pack/plugins/start/vim-salve
+	url = git@github.com:tpope/vim-salve.git
