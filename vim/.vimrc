@@ -117,6 +117,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Command mode readline-style movements
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+nnoremap <Leader>q :quit<CR>
+nnoremap <Leader>w :write<CR>
+nnoremap <Leader>x :xit<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
