@@ -245,6 +245,9 @@ let g:tagbar_type_swift = {
 
 set paste
 
+" Smartly join commented lines
+set formatoptions+=j
+
 """""""""""""""""""""""""""""
 " Custom Commands
 """""""""""""""""""""""""""""
