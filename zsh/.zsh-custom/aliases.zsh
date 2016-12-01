@@ -13,6 +13,7 @@ alias pr='hub pull-request'
 alias pi='pod install'
 alias pu='pod update'
 
+alias t='tig'
 alias tiga='tig --all'
 
 alias zshconfig="$EDITOR ~/.zshrc"
