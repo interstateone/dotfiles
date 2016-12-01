@@ -256,6 +256,12 @@ set paste
 " Smartly join commented lines
 set formatoptions+=j
 
+" Folding
+hi Folded ctermbg=238
+let &fillchars='vert:┃'             " less cluttered vertical window separators
+set foldmethod=indent               " not as cool as syntax, but faster
+set foldlevelstart=99               " start unfolded
+
 """""""""""""""""""""""""""""
 " Custom Commands
 """""""""""""""""""""""""""""
