@@ -231,6 +231,9 @@ endif
 
 let g:ctrlp_extensions = ['iOSSim', 'tag']
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = "r"
+let g:ctrlp_root_markers = ['project.clj']
+let g:ctrlp_max_files=0
 nnoremap <Leader>r :CtrlPTag<cr>
 
 " ctags optimization
