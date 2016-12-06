@@ -85,3 +85,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-salve"]
 	path = vim/.vim/pack/plugins/start/vim-salve
 	url = git@github.com:tpope/vim-salve.git
+[submodule "vim/.vim/pack/plugins/start/emmet-vim"]
+	path = vim/.vim/pack/plugins/start/emmet-vim
+	url = git@github.com:mattn/emmet-vim.git
