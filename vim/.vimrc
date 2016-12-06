@@ -143,6 +143,9 @@ set autoindent
 " Apply substitutions globally
 set gdefault
 
+set list
+set listchars=nbsp:⦸,trail:·,tab:▷┅
+
 " Investigate
 let g:investigate_use_dash=1
 let g:investigate_dash_for_swift="objc"
