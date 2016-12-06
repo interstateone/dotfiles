@@ -64,9 +64,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-titlecase"]
 	path = vim/.vim/pack/plugins/start/vim-titlecase
 	url = git@github.com:christoomey/vim-titlecase.git
-[submodule "vim/.vim/pack/plugins/start/vim-tmux-focus-events"]
-	path = vim/.vim/pack/plugins/start/vim-tmux-focus-events
-	url = git@github.com:tmux-plugins/vim-tmux-focus-events.git
 [submodule "vim/.vim/pack/plugins/start/vim-unimpaired"]
 	path = vim/.vim/pack/plugins/start/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired.git
