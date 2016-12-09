@@ -125,6 +125,9 @@ nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>x :xit<CR>
 
+map y <Plug>(highlightedyank)
+let g:highlightedyank_highlight_duration = 250
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

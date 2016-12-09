@@ -91,3 +91,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-abolish"]
 	path = vim/.vim/pack/plugins/start/vim-abolish
 	url = git@github.com:tpope/vim-abolish.git
+[submodule "vim/.vim/pack/plugins/start/vim-highlightedyank"]
+	path = vim/.vim/pack/plugins/start/vim-highlightedyank
+	url = git@github.com:machakann/vim-highlightedyank.git
