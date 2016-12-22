@@ -217,20 +217,23 @@ let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchain
 
 set shell=/bin/bash
 
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+" ripgrep
+if executable('rg')
+  " Use rg over grep
+  set grepprg=rg\ --vimgrep\ --no-heading\ --hidden
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:ackprg = 'rg --vimgrep --no-heading --hidden'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'rg --files --no-ignore --hidden --follow --glob "!.git/*" %s'
+
+  " rg is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-
-  " bind K to grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 let g:ctrlp_extensions = ['iOSSim', 'tag']
 let g:ctrlp_cmd = 'CtrlPMixed'
