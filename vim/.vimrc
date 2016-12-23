@@ -73,6 +73,7 @@ set t_vb=
 set tm=500
 
 set number 
+set rnu
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
