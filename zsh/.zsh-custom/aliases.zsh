@@ -33,3 +33,5 @@ alias stow='stow --ignore=.DS_Store'
 
 alias r='ranger'
 alias n='ncmpcpp'
+
+alias re='remind -l Reminders'
