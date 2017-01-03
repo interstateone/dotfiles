@@ -279,8 +279,6 @@ set foldlevelstart=99               " start unfolded
 " Custom Commands
 """""""""""""""""""""""""""""
 
-:command SquashAll 2,$s/^pick/squash/g
-
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
