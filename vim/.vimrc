@@ -298,6 +298,11 @@ let g:rspec_command = "Dispatch rspec {spec}"
 let g:xcodebuild_run_command = "call dispatch#compile_command(0, '{cmd}', 11)"
 :nnoremap gr :grep <cword> *<CR>
 
+" Source the vimrc file after saving it
+if has("autocmd")
+	autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " Status line
 " Always show a status line.
 set laststatus=2                  
