@@ -191,6 +191,9 @@ autocmd Filetype swift set efm=
     \%f:%l:\ warning:\ %m
 let g:xcode_run_command = 'Dispatch {cmd}'
 
+" fastlane
+au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
+
 " Spell checking
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
