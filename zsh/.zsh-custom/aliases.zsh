@@ -5,6 +5,7 @@ alias la='ls -GlA'
 alias gho="git config --get remote.origin.url | ruby -ne 'puts %{https://github.com/#{\$_.split(/.com[\:\/]/)[-1].gsub(\".git\",\"\")}}' | xargs open"
 alias gpf="git push --force-with-lease"
 alias gfp="git fetch --prune"
+alias gupdate="gco master && gup && gfp && gbda"
 
 alias gbi='hub browse -- issues'
 alias gbpr='hub browse -- pulls'
