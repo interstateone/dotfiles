@@ -94,3 +94,6 @@
 [submodule "vim/.vim/pack/plugins/start/vim-highlightedyank"]
 	path = vim/.vim/pack/plugins/start/vim-highlightedyank
 	url = git@github.com:machakann/vim-highlightedyank.git
+[submodule "vim/.vim/pack/plugins/start/vim-projectionist"]
+	path = vim/.vim/pack/plugins/start/vim-projectionist
+	url = git@github.com:tpope/vim-projectionist.git
