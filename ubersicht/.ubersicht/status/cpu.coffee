@@ -1,4 +1,4 @@
-command: "ESC=`printf \"\e\"`; ps -A -o %cpu | awk '{s+=$1} END {printf(\"%.2f\",s/8);}'"
+command: "ESC=`printf \"\e\"`; ps -A -o %cpu | awk '{s+=$1} END {printf(\"%02.0f\",s/8);}'"
 
 refreshFrequency: 2000 # ms
 
@@ -8,7 +8,7 @@ render: (output) ->
 style: """
   -webkit-font-smoothing: antialiased
   font: 12px "Fira Code Retina"
-  right: 170px
+  right: 110px
   top: 2px
   color: #666
   span
