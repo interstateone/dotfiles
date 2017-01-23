@@ -1,8 +1,7 @@
 command: """
-#WEATHER=$(/Users/brandon/bin/wu --conditions | grep Temperature | cut -d \"(\" -f2 | cut -d \")\" -f1 | sed \"s/\ C/°C/\")
 DATE=$(date +\"%a %b %e\")
 TIME=$(date +\"%I:%M\")
-printf '{"weather": "%s", "date": "%s", "time": "%s"}' "$WEATHER" "$DATE" "$TIME"
+printf '{"date": "%s", "time": "%s"}' "$DATE" "$TIME"
 """
 
 refreshFrequency: 5 * 60 * 1000 # ms
