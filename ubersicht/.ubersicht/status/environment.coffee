@@ -4,7 +4,7 @@ TIME=$(date +\"%I:%M\")
 printf '{"date": "%s", "time": "%s"}' "$DATE" "$TIME"
 """
 
-refreshFrequency: 5 * 60 * 1000 # ms
+refreshFrequency: 30 * 1000 # ms
 
 render: (output) ->
   output = JSON.parse(output)
