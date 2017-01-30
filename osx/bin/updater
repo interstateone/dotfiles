@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+brew update
+brew bundle -v --global
+npm -g update
+gem update
+softwareupdate -i -a
