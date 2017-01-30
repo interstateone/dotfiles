@@ -7,12 +7,11 @@ render: (output) ->
 
 style: """
   -webkit-font-smoothing: antialiased
-  color: #666
-  font: 14px "Fira Code Retina"
-  left: 10px
+  left: 25%
+  width: 50%
   top: 2px
-  span
-    font: 12px "Fira Code Retina"
-    color: #D5C4A1
+  text-align: center
+  font: 12px "Fira Code Retina"
+  color: #D5C4A1
 """
 

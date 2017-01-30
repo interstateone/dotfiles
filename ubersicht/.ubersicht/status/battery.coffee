@@ -13,7 +13,7 @@ style: """
   -webkit-font-smoothing: antialiased
   font: 12px "Fira Code Retina"
   top: 2px
-  right: 20px
+  right: 160px
   color: #666
   .percentage
     color: #D5C4A1

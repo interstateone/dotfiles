@@ -8,7 +8,7 @@ render: (output) ->
 style: """
   -webkit-font-smoothing: antialiased
   font: 12px "Fira Code Retina"
-  right: 175px
+  right: 295px
   top: 2px
   color: #666
   span
