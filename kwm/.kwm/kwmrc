@@ -127,6 +127,13 @@ if the screen exists.
 
    kwmc rule owner="iTunes" properties={display="1"}
 */
+kwmc rule owner="Safari" properties={space="1"}
+kwmc rule owner="Zeplin" properties={space="1"}
+kwmc rule owner="Xcode" properties={space="2"}
+kwmc rule owner="Terminal" properties={space="2"}
+kwmc rule owner="Simulator" properties={space="2"}
+kwmc rule owner="Slack" properties={space="3"}
+kwmc rule owner="Spark" properties={space="3"}
 
 # Enable border for focused window
 kwmc config border focused on
