@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 brew update
 brew bundle -v --global
 npm -g update
