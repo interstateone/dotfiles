@@ -5,12 +5,12 @@
 [github]
 	user = interstateone
 [core]
-	excludesfile = /Users/brandon/.gitignore_global
+	excludesfile = Users/Brandon/.gitignore
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/local/bin/ksdiff -- \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
 	trustExitCode = true
 [user]
 	name = Brandon Evans
