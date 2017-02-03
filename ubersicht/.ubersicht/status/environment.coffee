@@ -26,7 +26,7 @@ render: (output) ->
   <div class=\"datum\">mem <span class=\"yellow\">#{output.memory}</span></div>
   <div class=\"datum\">cpu <span class=\"yellow\">#{output.cpu}</span></div>
   <div class=\"datum\">bat <span class=\"yellow\">#{output.batteryLevel}</span>#{output.batteryIcon}</div>
-  <div class=\"datum\"><span>#{output.date}</span> <span>#{output.time}</span></div>
+  <div class=\"datum\"><span>#{output.date}</span> <span class="yellow">#{output.time}</span></div>
   """
 
 style: """
