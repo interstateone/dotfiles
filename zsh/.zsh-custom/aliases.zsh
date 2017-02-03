@@ -36,3 +36,6 @@ alias r='ranger'
 alias n='ncmpcpp'
 
 alias re='remind -l Reminders'
+
+alias cdf='cd "`pwdf`"'
+
