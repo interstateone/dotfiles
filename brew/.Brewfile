@@ -17,7 +17,6 @@ brew 'libmpc'
 brew 'gcc'
 brew 'openssl'
 brew 'libevent'
-brew 'open-mpi'
 brew 'boost', args: ['with-icu4c']
 brew 'cctools'
 brew 'chisel'
