@@ -34,7 +34,7 @@ alt + shift - l           :   kwmc window -f east
 alt + shift - j           :   kwmc window -f south
 alt + shift - k           :   kwmc window -f north
 alt + shift - i           :   kwmc window -s next
-alt + shift - o           :   kwmc window -s previous
+alt + shift - o           :   kwmc window -s prev
 alt + shift - t           :   kwmc window -t focused
 
 # Focus space
