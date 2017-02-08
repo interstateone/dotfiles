@@ -1,14 +1,14 @@
 # vi-mode for non-terminal applications
 # remap left-control h/j/k/l -> arrow keys
-lctrl - h         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- left"
-lctrl - j         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- down"
-lctrl - k         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- up"
-lctrl - l         ![HyperTerm,Terminal,iTerm2]      :   khd -p "- right"
+lctrl - h         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- left"
+lctrl - j         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- down"
+lctrl - k         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- up"
+lctrl - l         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- right"
 
-shift + lctrl - h ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - left"
-shift + lctrl - j ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - down"
-shift + lctrl - k ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - up"
-shift + lctrl - l ![HyperTerm,Terminal,iTerm2]      :   khd -p "shift - right"
+shift + lctrl - h ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - left"
+shift + lctrl - j ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - down"
+shift + lctrl - k ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - up"
+shift + lctrl - l ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - right"
 
 # enable kwm compatibility mode
 khd kwm on
