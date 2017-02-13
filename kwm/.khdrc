@@ -52,14 +52,14 @@ alt + shift + lctrl - 4     :   kwmc window -m space 4; kwmc space -fExperimenta
 alt + shift + lctrl - 5     :   kwmc window -m space 5; kwmc space -fExperimental 5
 
 # Focus display
-switcher - 1    :   kwmc display -f 0
-switcher - 2    :   kwmc display -f 1
-switcher - 3    :   kwmc display -f 2
+switcher - 1    :   kwmc display -f 0; khd -e "mode activate default"
+switcher - 2    :   kwmc display -f 1; khd -e "mode activate default"
+switcher - 3    :   kwmc display -f 2; khd -e "mode activate default"
 
 # Swap window to display
-swap + shift - 1        :   kwmc window -m display 0
-swap + shift - 2        :   kwmc window -m display 1
-swap + shift - 3        :   kwmc window -m display 2
+shift + switcher - 1        :   kwmc window -m display 0; khd -e "mode activate default"
+shift + switcher - 2        :   kwmc window -m display 1; khd -e "mode activate default"
+shift + switcher - 3        :   kwmc window -m display 2; khd -e "mode activate default"
 
 # Spaces
 lalt + lshift - a               :   kwmc space -t bsp
