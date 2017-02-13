@@ -10,7 +10,12 @@ itunes_playing=$(osascript -e '
 ')
 
 if [[ $mpc_playing ]]; then
-    echo $(/usr/local/bin/mpc current -f "%artist% - %title%")
+    artist=$(/usr/local/bin/mpc current -f "%artist%")
+    title=$(/usr/local/bin/mpc current -f "%title%")
+    if [[ $artist != "" ]]; then
+        echo "$artist - $title"
+    fi
+    echo "$title"
 elif [[ $itunes_playing == 'true' ]]; then
     artist=$(osascript -e 'tell app "iTunes" to return artist of current track' 2>/dev/null)
     artist_exit=$?
