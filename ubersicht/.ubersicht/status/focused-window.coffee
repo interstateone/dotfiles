@@ -1,9 +1,21 @@
-command: "echo $(/usr/local/bin/kwmc query space active tag)"
+command: """
+spaces=$(/usr/local/bin/kwmc query space list | cut -d, -f2 | paste -sd "," -)
+current_space_id=$(/usr/local/bin/kwmc query space active id)
+printf '{\
+  "spaces": "%s",\
+  "currentSpaceId": %s\
+}' "$spaces" "$current_space_id"
+"""
 
-refreshFrequency: 500 # ms
+refreshFrequency: 1000 # ms
 
 render: (output) ->
-  "#{output}"
+  json = JSON.parse(output)
+  spaces = json.spaces.split(", ").map (s) -> s.trim()
+  output = "<ul>"
+  output += "<li class=\"#{if spaceIndex is json.currentSpaceId - 1 then "current" else ""}\">#{space}</li>" for space, spaceIndex in spaces
+  output += "</ul>"
+  return output
 
 style: """
   -webkit-font-smoothing: antialiased
@@ -16,4 +28,14 @@ style: """
   overflow: hidden
   text-overflow: ellipsis
   white-space: no-wrap
+  ul
+    margin: 0
+    padding: 0
+  li
+    display: inline-block
+    padding: 0 4px
+
+    &.current
+      background-color: #D5C4A1
+      color: black
 """

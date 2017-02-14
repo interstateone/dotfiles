@@ -90,6 +90,11 @@ Override default settings for space 1 on screen 0
    kwmc config space 0 1 padding 100 100 100 100
    kwmc config space 0 1 gap 40 40
 */
+kwmc config space 0 1 name "hom"
+kwmc config space 0 2 name "dev"
+kwmc config space 0 3 name "com"
+kwmc config space 0 4 name "4"
+kwmc config space 0 5 name "5"
 
 /*
 Override default settings for screen 1
