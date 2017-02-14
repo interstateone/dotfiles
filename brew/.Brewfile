@@ -148,11 +148,13 @@ cask 'qlprettypatch'
 cask 'qlstephen'
 cask 'quickhue'
 cask 'quicklook-json'
+cask 'sketch'
 cask 'skim'
 cask 'sourcetree'
 cask 'transmission'
 cask 'ubersicht'
 cask 'vlc'
+cask 'zeplin'
 mas 'Final Cut Pro', id: 424389933
 mas 'External Editors For Photos', id: 1074021862
 mas 'Hues', id: 411811718
