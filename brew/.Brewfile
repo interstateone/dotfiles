@@ -95,7 +95,7 @@ brew 'llvm'
 brew 'mas'
 brew 'mercurial'
 brew 'mogenerator'
-brew 'mongodb', restart_service: true
+brew 'mongodb', restart_service: :changed
 brew 'mpc'
 brew 'mpd', restart_service: :changed
 brew 'taglib'
@@ -108,7 +108,7 @@ brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-bundler'
 brew 'reattach-to-user-namespace'
-brew 'redis', restart_service: true
+brew 'redis', restart_service: :changed
 brew 'ripgrep'
 brew 'sassc'
 brew 'scrypt'
