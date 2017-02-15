@@ -5,4 +5,5 @@ bind status d !git clean -n -d %(file)
 bind status D !git clean -d -f %(file)
 bind main B !git rebase -i %(commit)
 bind main x @bash -c "echo -n %(commit) | pbcopy"
+bind main F !git commit --fixup %(commit)
 bind refs n !@git branch "%(prompt Enter branch name: )"
