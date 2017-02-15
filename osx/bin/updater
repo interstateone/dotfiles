@@ -3,5 +3,6 @@
 brew update
 brew bundle -v --global
 npm -g update
+gem update --system
 gem update
 softwareupdate -i -a
