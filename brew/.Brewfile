@@ -124,7 +124,6 @@ brew 'trash'
 brew 'tree'
 brew 'uncrustify'
 brew 'vim'
-brew 'weechat', args: ['with-curl', 'with-perl', 'with-python', 'with-ruby']
 brew 'wget'
 brew 'xctool'
 brew 'yasm'
