@@ -22,7 +22,7 @@ ctrl - f                :   khd -e "mode activate switcher"
 switcher + ctrl - f     :   khd -e "mode activate default"
 
 # switcher mode
-switcher - r            :   khd -e "reload" # reload config
+switcher - r            :   khd -e "reload"; kwmc config reload
 
 # Open terminal
 switcher - return       :   open -na /Applications/Utilities/Terminal.app;\
