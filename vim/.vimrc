@@ -309,29 +309,12 @@ set laststatus=2
 
 hi clear StatusLine
 hi clear StatusLineNC
-hi StatusLine   term=bold cterm=bold ctermfg=White ctermbg=235
-hi StatusLineNC term=bold cterm=bold ctermfg=White ctermbg=235
+hi StatusLine   term=bold cterm=bold ctermfg=245 ctermbg=235
+hi StatusLineNC term=bold cterm=bold ctermfg=245 ctermbg=235
 
-function! WindowNumber()
-	return tabpagewinnr(tabpagenr())
-endfunction
-
-set statusline=
-set statusline+=%6*%m%r%*                          " modified, readonly
+set statusline=%=                                 " switch to RHS
+set statusline+=%m%r                              " modified, readonly
 set statusline+=\ 
-set statusline+=%5*%{expand('%:h')}/               " relative path to file's directory
-set statusline+=%1*%t%*                            " file name
+set statusline+=%{expand('%:h')}/                 " relative path to file's directory
+set statusline+=%t                                " file name
 set statusline+=\ 
-set statusline+=\ 
-set statusline+=%<                                 " truncate here if needed
-set statusline+=%5*%L\ lines%*                     " number of lines
-
-set statusline+=%=                                 " switch to RHS
-
-set statusline+=%5*col:%-3.c%*                      " column
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=%2*buf:%-3n%*                      " buffer number
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=%2*win:%-3.3{WindowNumber()}%*     " window number
