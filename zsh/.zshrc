@@ -102,7 +102,7 @@ bindkey '^Z' fancy-ctrl-z
 
 # hh
 export HISTFILE=~/.zsh_history  # ensure history file visibility
-export HH_CONFIG=hicolor        # get more colors
+export HH_CONFIG=keywords,hicolor        # get more colors
 bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
 
 # pwdf: echoes path of front-most window of Finder
