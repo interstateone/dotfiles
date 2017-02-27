@@ -78,8 +78,8 @@ set rnu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set background=dark
+colorscheme Tomorrow-Night
 
 " Enable syntax highlighting
 syntax enable
