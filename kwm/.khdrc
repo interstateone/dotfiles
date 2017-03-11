@@ -14,8 +14,8 @@ shift + lctrl - l ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd 
 khd kwm on
 
 # set border color for different modes
-khd mode default color 0xFFBDD322
-khd mode switcher color 0xDDFABD2F
+khd mode default color 0xFFB5BD68
+khd mode switcher color 0XFFDE935F
 
 # toggle between modes
 ctrl - f                :   khd -e "mode activate switcher"
