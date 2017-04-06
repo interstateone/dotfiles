@@ -1,37 +1,41 @@
+[user]
+    name = Brandon Evans
+    email = brandon@brandonevans.ca
 [init]
     templatedir = ~/.git_template
+[commit]
+    gpgSign = true
 [push]
-	default = current
-[github]
-	user = interstateone
-[core]
-	excludesfile = Users/Brandon/.gitignore
-[difftool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff -- \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
-[user]
-	name = Brandon Evans
-	email = brandon@brandonevans.ca
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    default = current
+    followTags = true
 [rebase]
-	autostash = true
-	autosquash = true
-[ghi]
-	token = !security find-internet-password -a interstateone -s github.com -l 'ghi token' -w
-[diff "plist"]
-	textconv = plutil -convert xml1 -o -
+    autostash = true
+    autosquash = true
+[github]
+    user = interstateone
+[core]
+    excludesfile = Users/Brandon/.gitignore
+[pager]
+    diff = diff-so-fancy | less --tabs=4 -RFX
+    show = diff-so-fancy | less --tabs=4 -RFX
+[rerere]
+    enabled = true
+[gpg]
+    program = gpg2
 [alias]
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
-[pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
-[rerere]
-	enabled = true
-[gpg]
-	program = gpg2
+[difftool "sourcetree"]
+    cmd = /usr/local/bin/ksdiff -- \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+    trustExitCode = true
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+[ghi]
+    token = !security find-internet-password -a interstateone -s github.com -l 'ghi token' -w
+[diff "plist"]
+    textconv = plutil -convert xml1 -o -
