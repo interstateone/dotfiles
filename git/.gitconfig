@@ -1,6 +1,7 @@
 [user]
     name = Brandon Evans
     email = brandon@brandonevans.ca
+    signingkey = 19D473C0B135D1811C00D54AD58A4B8DB64F8E93
 [init]
     templatedir = ~/.git_template
 [commit]
