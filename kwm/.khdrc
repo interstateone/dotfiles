@@ -16,10 +16,14 @@ khd kwm on
 # set border color for different modes
 khd mode default color 0xFFB5BD68
 khd mode switcher color 0XFFDE935F
+khd mode move color 0XFFB294BB
 
 # toggle between modes
 ctrl - f                :   khd -e "mode activate switcher"
 switcher + ctrl - f     :   khd -e "mode activate default"
+switcher - m            :   khd -e "mode activate move"
+move + ctrl - f         :   khd -e "mode activate default"
+move - m                :   khd -e "mode activate default"
 
 # switcher mode
 switcher - r            :   khd -e "reload"; kwmc config reload
@@ -50,6 +54,12 @@ alt + shift + lctrl - 2     :   kwmc window -m space 2; kwmc space -fExperimenta
 alt + shift + lctrl - 3     :   kwmc window -m space 3; kwmc space -fExperimental 3
 alt + shift + lctrl - 4     :   kwmc window -m space 4; kwmc space -fExperimental 4
 alt + shift + lctrl - 5     :   kwmc window -m space 5; kwmc space -fExperimental 5
+
+# Move window
+move - h        :   /Users/brandon/bin/move-window west
+move - j        :   /Users/brandon/bin/move-window south
+move - k        :   /Users/brandon/bin/move-window north
+move - l        :   /Users/brandon/bin/move-window east
 
 # Focus display
 switcher - 1    :   kwmc display -f 0; khd -e "mode activate default"
