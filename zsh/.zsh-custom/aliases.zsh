@@ -6,6 +6,7 @@ alias gho="git config --get remote.origin.url | ruby -ne 'puts %{https://github.
 alias gpf="git push --force-with-lease"
 alias gfp="git fetch --prune"
 alias gupdate="gco master && gup && gfp && gbda"
+alias grbm="gco master; gup; gco -; grb master"
 
 alias gbi='hub browse -- issues'
 alias gbpr='hub browse -- pulls'
