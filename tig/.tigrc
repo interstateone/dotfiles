@@ -1,5 +1,7 @@
 set line-graphics = utf-8
 
+color cursor white 237 bold
+
 set ignore-case = smart-case
 set status-show-untracked-dirs = yes
 set status-show-untracked-files = yes
