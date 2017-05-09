@@ -1,5 +1,9 @@
 set line-graphics = utf-8
 
+set ignore-case = smart-case
+set status-show-untracked-dirs = yes
+set status-show-untracked-files = yes
+
 bind status + !git commit --amend
 bind status d !git clean -n -d %(file)
 bind status D !git clean -d -f %(file)
