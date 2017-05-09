@@ -59,14 +59,13 @@ function collapse_pwd {
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
-    echo '○'
 }
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-PROMPT=$'%{$fg[blue]%}$(collapse_pwd)%{$reset_color%}\n%{$fg[yellow]%}❯ %{$reset_color%}$(git_prompt_info)$(virtualenv_info) $(prompt_char) '
+PROMPT=$'%{$fg[blue]%}$(collapse_pwd)%{$reset_color%} $(git_prompt_info)$(virtualenv_info) $(prompt_char)\n%{$fg[yellow]%}❯ %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
