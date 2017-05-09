@@ -15,7 +15,9 @@ alias pi='pod install'
 alias pu='pod update'
 
 alias t='tig'
-alias tiga='tig --all'
+alias tr='tig refs'
+alias ts='tig status'
+alias ta='tig --all'
 
 alias zshconfig="$EDITOR ~/.zshrc"
 alias reload="source ~/.zshrc"
