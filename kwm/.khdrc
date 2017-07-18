@@ -10,13 +10,10 @@ shift + lctrl - j ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd 
 shift + lctrl - k ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - up"
 shift + lctrl - l ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - right"
 
-# enable kwm compatibility mode
-khd kwm on
-
 # set border color for different modes
-khd mode default color 0xFFB5BD68
-khd mode switcher color 0XFFDE935F
-khd mode move color 0XFFB294BB
+khd mode default on_enter kwmc config border focused color 0xFFB5BD68
+khd mode switcher on_enter kwmc config border focused color 0XFFDE935F
+khd mode move on_enter kwmc config border focused color 0XFFB294BB
 
 # toggle between modes
 ctrl - f                :   khd -e "mode activate switcher"
