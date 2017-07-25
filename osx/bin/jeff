@@ -1,0 +1,49 @@
+#! /bin/bash
+#
+# Jeff, as a shell script
+# Records the iOS Simulator as a GIF for easy sharing
+# Requires: Xcode 9, terminal-notifier, ffmpeg, gifsicle
+#
+# Usage: Invoke with a hotkey manager like BetterTouchTool, Alfred, khd, etc.
+#        First invocation will start recording
+#        Second invocation stops recording and reveals the recording in the finder
+#
+
+# If the simulator is recording, send SIGINT (ctrl+c) to the child process to stop it
+if [[ -e .jeff.pid ]]; then
+    kill -INT $(cat ".jeff.pid")
+    rm .jeff.pid
+    exit 1
+fi
+
+temp_video=/tmp/jeff.mp4
+temp_gif=/tmp/jeff.gif
+final_gif="$HOME/Desktop/$(date).gif"
+
+# Make sure a simulator is booted before trying to record one
+if [[ $(xcrun simctl list | grep Booted | wc -l) -eq 0 ]]; then
+    /usr/local/bin/terminal-notifier -title "Jeff" -message "⛔️ No simulators running" -timeout 3
+    exit 1
+fi
+
+/usr/local/bin/terminal-notifier -title "Jeff" -message "🔴 Recording"
+
+# Record the simulator, running the process in the background
+xcrun simctl io booted recordVideo --type=mp4 "$temp_video" &
+# Save the pid of the background recording in order to stop it later
+echo $! > .jeff.pid
+# If this script gets a SIGINT, clean up and exit
+trap "rm .jeff.pid; rm ${temp_video}; exit 0" INT
+# Wait here until the background recording process completes
+wait
+
+/usr/local/bin/terminal-notifier -title "Jeff" -message "✅ Finished recording" -remove "ALL" -timeout 3
+
+# Convert the recorded video to a gif
+/usr/local/bin/ffmpeg -loglevel 16 -i "$temp_video" "$temp_gif"
+# Resize and optimize the gif to reduce file size
+/usr/local/bin/gifsicle -O3 "$temp_gif" --resize-fit 500x500 -o "$final_gif"
+rm "$temp_video" "$temp_gif"
+# Reveal the recording
+open -R "$final_gif"
+
