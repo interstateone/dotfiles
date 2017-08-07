@@ -165,30 +165,12 @@ let g:gitgutter_realtime = 0
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Xcode
-" autocmd FileType swift compiler xcodebuild
-" autocmd FileType objc compiler xcodebuild
-autocmd FileType objc set efm=
-    \%f:%l:%c:{%*[^}]}:\ error:\ %m,
-    \%f:%l:%c:{%*[^}]}:\ fatal\ error:\ %m,
-    \%f:%l:%c:{%*[^}]}:\ warning:\ %m,
-    \%f:%l:%c:\ error:\ %m,
-    \%f:%l:%c:\ fatal\ error:\ %m,
-    \%f:%l:%c:\ warning:\ %m,
-    \%f:%l:\ Error:\ %m,
-    \%f:%l:\ error:\ %m,
-    \%f:%l:\ fatal\ error:\ %m,
-    \%f:%l:\ warning:\ %m
+autocmd FileType objc compiler xcodebuild
+autocmd FileType swift compiler xcodebuild
 autocmd Filetype swift set efm=
-    \%f:%l:%c:{%*[^}]}:\ error:\ %m,
-    \%f:%l:%c:{%*[^}]}:\ fatal\ error:\ %m,
-    \%f:%l:%c:{%*[^}]}:\ warning:\ %m,
-    \%f:%l:%c:\ error:\ %m,
-    \%f:%l:%c:\ fatal\ error:\ %m,
-    \%f:%l:%c:\ warning:\ %m,
-    \%f:%l:\ Error:\ %m,
-    \%f:%l:\ error:\ %m,
-    \%f:%l:\ fatal\ error:\ %m,
-    \%f:%l:\ warning:\ %m
+let g:dispatch_compilers = {
+    \ 'fastlane': 'xcodebuild',
+    \ 'xcodebuild': 'xcodebuild'}
 let g:xcode_run_command = 'Dispatch {cmd}'
 
 " fastlane
