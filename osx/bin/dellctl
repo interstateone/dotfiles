@@ -1,0 +1,36 @@
+#!/bin/bash
+
+ddcctl="/Users/brandon/bin/ddcctl"
+osdisplay="/Users/brandon/bin/OSDisplay.app/Contents/MacOS/OSDisplay -i "brightness" -d 1"
+
+current() {
+    local current=$($ddcctl -d 1 -b ? | grep -Eoi "current: (\d+)" | grep -Eoi "\d+")
+    echo "$current"
+}
+
+dim() {
+    $ddcctl -d 1 -b 30 -c 75
+}
+
+bright() {
+    $ddcctl -d 1 -b 70 -c 75
+}
+
+up() {
+    local value=$($ddcctl -d 1 -b 10+ | grep -Eoi "setting.*=> (\d+)" | grep -Eoi "\d+" | tail -n1)
+    $osdisplay -l $value
+}
+
+down() {
+    local value=$($ddcctl -d 1 -b 10- | grep -Eoi "setting.*=> (\d+)" | grep -Eoi "\d+" | tail -n1)
+    $osdisplay -l $value
+}
+
+case "$1" in
+    dim|bright|up|down|current) $1;;
+    *)  #no scheme given, match local Hour of Day
+        HoD=$(date +%k) #hour of day
+        let "night = (( $HoD < 7 || $HoD > 18 ))" #daytime is 7a-7p
+        (($night)) && dim || bright
+        ;;
+esac

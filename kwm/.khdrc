@@ -29,6 +29,10 @@ switcher - r            :   khd -e "reload"; kwmc config reload
 switcher - return       :   open -na /Applications/Utilities/Terminal.app;\
                             khd -e "mode activate default"
 
+# Manage Dell display
+ctrl + shift - f1                 :   /Users/brandon/bin/dellctl down
+ctrl + shift - f2                 :   /Users/brandon/bin/dellctl up
+
 # Cycle window focus
 alt + shift - h           :   kwmc window -f west
 alt + shift - l           :   kwmc window -f east
