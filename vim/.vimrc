@@ -229,7 +229,6 @@ let g:ctrlp_max_files=0
 nnoremap <Leader>r :CtrlPTag<cr>
 
 " ctags optimization
-set autochdir
 set tags=tags;
 
 " tagbar
