@@ -252,20 +252,6 @@ set tags=tags;
 
 " tagbar
 nnoremap <Leader>t :TagbarToggle<CR>
-let g:tagbar_type_swift = {
-  \ 'ctagstype': 'swift',
-  \ 'kinds' : [
-    \ 'c:Classes',
-    \ 's:Structs',
-    \ 'n:Enums',
-    \ 'p:Protocols',
-    \ 'e:Extensions',
-    \ 't:Typealiases',
-    \ 'f:Functions',
-    \ 'v:Variables'
-  \ ],
-  \ 'sort' : 0
-\ }
 
 set paste
 
