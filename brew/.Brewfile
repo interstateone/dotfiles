@@ -171,16 +171,10 @@ mas '1Password', id: 443987910
 mas 'Aperture', id: 408981426
 mas 'Reeder', id: 880001334
 mas 'xScope', id: 889428659
-mas 'Characters', id: 536511979
 mas 'Redacted', id: 984968384
 mas 'Deckset', id: 847496013
-mas 'Soulver', id: 413965349
 mas 'Bear', id: 1091189122
-mas 'Transmit', id: 403388562
-mas 'Exporter for Aperture', id: 901489125
 mas 'Spark', id: 1176895641
-mas 'Slack', id: 803453959
-mas 'Polarr Photo Editor', id: 1058273036
 mas 'iFlicks 2', id: 731062389
 mas 'Compressor', id: 424390742
 mas 'Realm Browser', id: 1007457278
@@ -189,4 +183,3 @@ mas 'Numbers', id: 409203825
 mas 'Harvest', id: 506189836
 mas 'Patterns', id: 429449079
 mas 'Tweetbot', id: 557168941
-mas 'Kindle', id: 405399194
