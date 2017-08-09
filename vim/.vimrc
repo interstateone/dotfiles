@@ -175,6 +175,9 @@ let g:xcode_run_command = 'Dispatch {cmd}'
 " fastlane
 au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
 
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype swift setlocal ts=4 sw=4 sts=0 expandtab
+
 " Spell checking
 autocmd FileType markdown setlocal spell
 autocmd FileType gitcommit setlocal spell
