@@ -168,8 +168,8 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType objc compiler xcodebuild
 autocmd FileType swift compiler xcodebuild
 let g:dispatch_compilers = {
-    \ 'fastlane': 'xcodebuild',
-    \ 'xcodebuild': 'xcodebuild'}
+    \ 'make': 'xcodebuild',
+    \ 'fastlane': 'xcodebuild'}
 let g:xcode_run_command = 'Dispatch {cmd}'
 
 " fastlane
