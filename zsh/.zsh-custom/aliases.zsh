@@ -29,8 +29,6 @@ alias cleanup="git branch --merged | xargs git branch -d"
 
 alias rake='noglob rake'
 
-alias gpg='gpg2'
-
 alias top='htop'
 
 alias stow='stow --ignore=.DS_Store'

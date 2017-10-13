@@ -22,7 +22,7 @@
 [rerere]
     enabled = true
 [gpg]
-    program = gpg2
+    program = gpg
 [alias]
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 [difftool "sourcetree"]
