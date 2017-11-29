@@ -10,6 +10,9 @@ shift + lctrl - j ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd 
 shift + lctrl - k ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - up"
 shift + lctrl - l ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - right"
 
+# Workaround for window borders being caught by Grab
+cmd + shift - 4 -> : chunkc border::clear
+
 # toggle between modes
 ctrl - f                :   khd -e "mode activate switcher"
 switcher + ctrl - f     :   khd -e "mode activate default"
