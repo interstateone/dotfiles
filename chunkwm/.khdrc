@@ -69,12 +69,8 @@ lalt + lshift - s               :   chunkc tiling::desktop --layout monocle
 lalt + lshift - d               :   chunkc tiling::desktop --layout float
 
 # Window size
-alt + shift + lctrl - h  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west
-alt + shift + lctrl - j  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south
-alt + shift + lctrl - k  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north
-alt + shift + lctrl - l  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east
-lcmd + shift + lctrl - h  :   chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
-lcmd + shift + lctrl - j  :   chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
-lcmd + shift + lctrl - k  :   chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
-lcmd + shift + lctrl - l  :   chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
+alt + shift + lctrl - h  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
+alt + shift + lctrl - j  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
+alt + shift + lctrl - k  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
+alt + shift + lctrl - l  :   chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
 
