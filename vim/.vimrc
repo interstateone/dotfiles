@@ -58,6 +58,11 @@ set incsearch
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
+" Other performance tweaks
+set ttyfast
+set synmaxcol=128
+set nocursorcolumn
+
 " For regular expressions turn magic on
 set magic
 
@@ -72,8 +77,10 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set number 
-set rnu
+set number
+
+" Disabling because of poor performance
+" set rnu
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
