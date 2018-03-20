@@ -2,7 +2,10 @@
 
 brew update
 brew bundle -v --global
+mas upgrade
 npm -g update
 gem update --system
 gem update
+gem cleanup
 softwareupdate -i -a
+apm update
