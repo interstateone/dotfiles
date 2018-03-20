@@ -41,3 +41,4 @@ alias re='remind -l Reminders'
 alias cdf='cd "`pwdf`"'
 
 alias f='fzf --height=30 --reverse'
+alias vf='vim "$(fzf)"'
