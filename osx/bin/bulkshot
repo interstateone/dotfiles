@@ -1,6 +1,8 @@
 #! /bin/bash
 #
 #  Bulkshot
+#  Requires: Xcode 9, imagemagick
+#
 #  Takes a screenshot of all running iOS simulators and stitches them together
 #
 
