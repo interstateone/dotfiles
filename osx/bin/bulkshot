@@ -1,0 +1,32 @@
+#! /bin/bash
+#
+#  Bulkshot
+#  Takes a screenshot of all running iOS simulators and stitches them together
+#
+
+tmp_screenshots=/tmp/bulkshots
+output="$HOME/Desktop/$(date).png"
+
+mkdir -p $tmp_screenshots
+
+IFS=$'\n'
+for sim in $(xcrun simctl list | grep Booted); do
+    echo "Screenshotting $sim"
+    id=$(echo $sim | awk -F'[()]' '{print $2}')
+    xcrun simctl io "$id" screenshot --type=png "$tmp_screenshots/$id.png"
+done
+unset IFS
+
+# Stitch the images together
+convert \
+    -resize 1000x1000 \
+    -gravity center \
+    +append \
+    "$tmp_screenshots/*.png" \
+    "$output"
+
+rm -r "$tmp_screenshots"
+
+# Reveal the stitched image
+open -R "$output"
+
