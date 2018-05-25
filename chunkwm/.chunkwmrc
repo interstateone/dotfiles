@@ -60,8 +60,8 @@ chunkc set window_region_locked          1
 chunkc set mouse_modifier                fn
 
 chunkc set preselect_border_color        0XFFDE935F
-chunkc set preselect_border_width        3
-chunkc set preselect_border_radius       7
+chunkc set preselect_border_width        5
+chunkc set preselect_border_radius       5
 
 #
 # NOTE: these settings require chwm-sa.
@@ -78,9 +78,9 @@ chunkc set window_fade_duration          0.5
 #
 
 chunkc set focused_border_color          0xFFB5BD68
-chunkc set focused_border_width          3
-chunkc set focused_border_radius         7
 chunkc set focused_border_skip_floating  0
+chunkc set focused_border_width          5
+chunkc set focused_border_radius         5
 
 #
 # NOTE: specify plugins to load when chunkwm starts.
