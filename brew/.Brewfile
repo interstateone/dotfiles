@@ -76,18 +76,36 @@ brew 'koekeishiya/formulae/khd'
 brew 'crisidev/homebrew-chunkwm/chunkwm', args: ['HEAD']
 brew 'kylef/formulae/swiftenv'
 
+cask 'alfred'
+cask 'arq'
 cask 'atom'
 cask 'bartender'
 cask 'bettertouchtool'
+cask 'brisk'
+cask 'carbon-copy-cloner'
+cask 'charles'
+cask 'dash'
+cask 'deckset'
 cask 'docker'
 cask 'duet'
+cask 'flume'
 cask 'flux'
+cask 'google-chrome'
+cask 'highsierramediakeyenabler'
+cask 'hopper-disassembler'
+cask 'iina'
+cask 'imageoptim'
+cask 'istat-menus'
+cask 'jetbrains-toolbox'
+cask 'karabiner-elements'
+cask 'monodraw'
 cask 'omnidisksweeper'
 cask 'keybase'
 cask 'handbrake'
 cask 'openemu'
 cask 'owncloud'
 cask 'paw'
+cask 'pdf-expert'
 cask 'postman'
 cask 'qlcolorcode'
 cask 'qlmarkdown'
@@ -96,35 +114,36 @@ cask 'qlstephen'
 cask 'quickhue'
 cask 'quicklook-json'
 cask 'sketch'
-cask 'skim'
 cask 'skype'
 cask 'sourcetree'
 cask 'transmission'
+cask 'transmit'
 cask 'visual-studio-code'
-cask 'vlc'
 cask 'zeplin'
 
+mas '1Blocker', id: 1107421413
 mas 'Final Cut Pro', id: 424389933
 mas 'Hues', id: 411811718
 mas 'Kaleidoscope', id: 587512244
-mas 'Flume', id: 792425898
 mas 'Monosnap', id: 540348655
 mas 'The Unarchiver', id: 425424353
 mas 'Pixelmator', id: 407963104
 mas 'DaisyDisk', id: 411643860
-mas '1Password', id: 443987910
-mas 'Aperture', id: 408981426
+mas 'Deliveries: a package tracker', id: 924726344
+mas 'Haskell — Development Platform', id: 841285201
+mas '1Password 7', id: 1333542190
 mas 'Reeder', id: 880001334
 mas 'xScope', id: 889428659
 mas 'Redacted', id: 984968384
-mas 'Deckset', id: 847496013
 mas 'Bear', id: 1091189122
-mas 'Spark', id: 1176895641
 mas 'iFlicks 2', id: 731062389
 mas 'Compressor', id: 424390742
 mas 'Realm Browser', id: 1007457278
 mas 'GIF Brewery 3', id: 1081413713
 mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Keynote', id: 409183694
 mas 'Patterns', id: 429449079
-mas 'Tweetbot', id: 557168941
+mas 'Tweetbot 3 for Twitter', id: 1384080005
+mas 'Noizio', id: 928871589
 
