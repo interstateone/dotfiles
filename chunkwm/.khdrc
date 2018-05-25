@@ -33,7 +33,8 @@ alt + shift - j           :   chunkc tiling::window --focus south
 alt + shift - k           :   chunkc tiling::window --focus north
 alt + shift - i           :   chunkc tiling::window --swap next
 alt + shift - o           :   chunkc tiling::window --swap prev
-alt + shift - w           :   chunkc tiling::window --toggle float
+alt + shift - w           :   chunkc tiling::window --toggle float; \
+                              chunkc tiling::window --grid-layout 4:4:1:1:2:2
 alt + shift - f           :   chunkc tiling::window --toggle fullscreen
 alt + shift - r           :   chunkc tiling::desktop --rotate 90
 
