@@ -1,15 +1,3 @@
-# vi-mode for non-terminal applications
-# remap left-control h/j/k/l -> arrow keys
-lctrl - h         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- left"
-lctrl - j         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- down"
-lctrl - k         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- up"
-lctrl - l         ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "- right"
-
-shift + lctrl - h ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - left"
-shift + lctrl - j ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - down"
-shift + lctrl - k ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - up"
-shift + lctrl - l ![HyperTerm,Terminal,iTerm2,AppCode-EAP,AppCode]      :   khd -p "shift - right"
-
 # Workaround for window borders being caught by Grab
 cmd + shift - 4 -> : chunkc border::clear
 
