@@ -9,7 +9,7 @@ move + ctrl - f         :   khd -e "mode activate default";  chunkc border::colo
 move - m                :   khd -e "mode activate default";  chunkc border::color 0xFFB5BD68
 
 # switcher mode
-switcher - r            :   khd -e "reload"; kwmc config reload
+switcher - r            :   khd -e "mode activate default"; khd -e "reload"; brew services restart chunkwm
 
 # Open terminal
 switcher - return       :   open -na /Applications/Utilities/Terminal.app;\
