@@ -77,9 +77,9 @@ chunkc set window_fade_duration          0.5
 #
 
 chunkc set focused_border_color          0xFFB5BD68
-chunkc set focused_border_skip_floating  0
 chunkc set focused_border_width          5
 chunkc set focused_border_radius         5
+chunkc set focused_border_skip_floating  1
 
 #
 # NOTE: specify plugins to load when chunkwm starts.
