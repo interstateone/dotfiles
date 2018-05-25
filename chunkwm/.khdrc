@@ -2,11 +2,11 @@
 cmd + shift - 4 -> : chunkc border::clear
 
 # toggle between modes
-ctrl - f                :   khd -e "mode activate switcher"
-switcher + ctrl - f     :   khd -e "mode activate default"
-switcher - m            :   khd -e "mode activate move"
-move + ctrl - f         :   khd -e "mode activate default"
-move - m                :   khd -e "mode activate default"
+ctrl - f                :   khd -e "mode activate switcher"; chunkc border::color 0XFFDE935F
+switcher + ctrl - f     :   khd -e "mode activate default";  chunkc border::color 0xFFB5BD68
+switcher - m            :   khd -e "mode activate move";     chunkc border::color 0XFFB294BB
+move + ctrl - f         :   khd -e "mode activate default";  chunkc border::color 0xFFB5BD68
+move - m                :   khd -e "mode activate default";  chunkc border::color 0xFFB5BD68
 
 # switcher mode
 switcher - r            :   khd -e "reload"; kwmc config reload
