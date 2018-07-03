@@ -65,7 +65,14 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-PROMPT=$'%{$fg[blue]%}$(collapse_pwd)%{$reset_color%} $(git_prompt_info)$(virtualenv_info) $(prompt_char)\n%{$fg[yellow]%}❯ %{$reset_color%}'
+# Parse out version from xcodebuild's plist based on output of xcode-select
+# Thanks to @danielpunkass for the performance improvement that avoids executing "xcodebuild -version"
+# http://marcpalmer.net/hacking-my-shell-prompt-so-i-make-less-mistakes-working-with-xcode-projects/
+function parse_xcode_version {
+    echo `plutil -p \`xcode-select -p\`/../Info.plist | grep -e CFBundleShortVersionString | sed 's/[^0-9\.]*//g'`
+}
+
+PROMPT=$'%{$fg[blue]%}$(collapse_pwd)%{$reset_color%} $(parse_xcode_version) $(git_prompt_info)$(virtualenv_info) $(prompt_char)\n%{$fg[yellow]%}❯ %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
