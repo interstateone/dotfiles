@@ -9,6 +9,7 @@ set status-show-untracked-files = yes
 bind status + !git commit --amend
 bind status d !git clean -n -d %(file)
 bind status D !git clean -d -f %(file)
+bind status v !git difftool -y %(file)
 bind main B !git rebase -i %(commit)
 bind main x @bash -c "echo -n %(commit) | pbcopy"
 bind main F !git commit --fixup %(commit)
