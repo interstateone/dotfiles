@@ -26,10 +26,10 @@
 [alias]
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 [difftool "sourcetree"]
-    cmd = /usr/local/bin/ksdiff -- \"$LOCAL\" \"$REMOTE\"
+    cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
     path = 
 [mergetool "sourcetree"]
-    cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
     trustExitCode = true
 [filter "lfs"]
     required = true
@@ -40,3 +40,7 @@
     token = !security find-internet-password -a interstateone -s github.com -l 'ghi token' -w
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
+[diff]
+    tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
