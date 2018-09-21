@@ -6,6 +6,7 @@
     templatedir = ~/.git_template
 [commit]
     gpgSign = true
+    template = ~/.gitmessage
 [push]
     default = current
     followTags = true
