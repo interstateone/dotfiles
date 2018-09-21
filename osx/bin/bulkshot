@@ -14,7 +14,7 @@ mkdir -p $tmp_screenshots
 IFS=$'\n'
 for sim in $(xcrun simctl list | grep Booted); do
     echo "Screenshotting $sim"
-    id=$(echo $sim | awk -F'[()]' '{print $2}')
+    id=$(echo $sim | grep -Eo '[[:alnum:]]{8}-[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{12}')
     xcrun simctl io "$id" screenshot --type=png "$tmp_screenshots/$id.png"
 done
 unset IFS
