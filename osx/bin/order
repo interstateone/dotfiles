@@ -1,0 +1,99 @@
+#! /usr/bin/swift
+
+// order
+//
+// Presents arguments in a windowed list that can be reordered by drag-and-drop. Clicking done prints the reordered list to stdout.
+
+import AppKit
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    let window = NSWindow(contentRect: NSMakeRect(200, 200, 400, 200),
+                          styleMask: [.titled, .closable, .resizable],
+                          backing: .buffered,
+                          defer: false)
+    var arguments: [String]!
+
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        arguments = Array(CommandLine.arguments.dropFirst())
+
+        let tableView = NSTableView(frame: window.contentView!.bounds)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = 20
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerForDraggedTypes([.string])
+        let column = NSTableColumn(identifier: .argument)
+        tableView.addTableColumn(column)
+        window.contentView?.addSubview(tableView)
+
+        let button = NSButton(title: "Done", target: self, action: #selector(done(_:)))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        window.contentView?.addSubview(button)
+
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: window.contentView!.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: window.contentView!.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: window.contentView!.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: button.topAnchor),
+            button.leadingAnchor.constraint(equalTo: window.contentView!.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: window.contentView!.trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: window.contentView!.bottomAnchor),
+        ])
+
+        window.makeKeyAndOrderFront(nil)
+        tableView.reloadData()
+    }
+
+    @objc func done(_ sender: Any) {
+        arguments.forEach { print($0) }
+        NSApplication.shared.terminate(self)
+    }
+}
+
+extension AppDelegate: NSTableViewDataSource, NSTableViewDelegate {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return arguments.count
+    }
+
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let argument = arguments[row]
+        let cell = NSTextField(string: argument)
+        cell.identifier = .argument
+        return cell
+    }
+
+    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
+        return pboard.setString(String(rowIndexes.first!), forType: .string)
+    }
+
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        tableView.setDropRow(row, dropOperation: .above)
+        return .move
+    }
+
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        let fromIndex = Int(info.draggingPasteboard.string(forType: .string)!)!
+        arguments.moveElement(from: fromIndex, to: row)
+        tableView.reloadData()
+
+        return true
+    }
+}
+
+extension NSUserInterfaceItemIdentifier { static let argument = NSUserInterfaceItemIdentifier(rawValue: "Argument") }
+extension Array {
+    mutating func moveElement(from: Int, to: Int) {
+        let element = remove(at: from)
+
+        if to < startIndex { insert(element, at: startIndex) }
+        else if to <= from { insert(element, at: to) }
+        else if to > endIndex { append(element) }
+        else { insert(element, at: to - 1) }
+    }
+}
+
+let app = NSApplication.shared
+let delegate = AppDelegate()
+app.delegate = delegate
+app.run()
+
