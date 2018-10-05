@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         tableView.delegate = self
         tableView.registerForDraggedTypes([.string])
         let column = NSTableColumn(identifier: .argument)
+        column.width = window.frame.width
         tableView.addTableColumn(column)
         window.contentView?.addSubview(tableView)
 
