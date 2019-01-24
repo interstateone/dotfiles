@@ -10,9 +10,9 @@
     <string>/Users/brandon/bin/slack-calendar-status.swift</string>
   </array>
 
-  <!-- Run every 10 minutes -->
+  <!-- Run every minute -->
   <key>StartInterval</key>
-  <integer>600</integer>
+  <integer>60</integer>
 
   <key>RunAtLoad</key>
   <true/>
