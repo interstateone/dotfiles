@@ -24,6 +24,8 @@
 
   <key>EnvironmentVariables</key>
   <dict>
+    <key>PATH</key>
+    <string>/usr/bin:/usr/local/bin</string>
     <key>SLACK_TOKEN</key>
     <string></string>
     <key>CALENDAR</key>
