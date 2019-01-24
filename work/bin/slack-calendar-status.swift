@@ -68,7 +68,7 @@ firstly {
             let shortDate = DateFormatter.shortDate.string(from: event.endDate)
             return slack.updateStatus("PTO until \(shortDate)", emoji: ":palm_tree:", expiration: event.endDate)
         }
-        else if !event.isAllDay && event.availability != .free {
+        else if !event.isAllDay && event.availability != .free && event.startDate < Date() && event.endDate > Date() {
             return slack.updateStatus("In a meeting", emoji: ":spiral_calendar_pad:", expiration: event.endDate)
         }
         else if event.isAllDay && event.title.hasPrefix("Travel: ") {
