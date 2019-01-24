@@ -17,6 +17,11 @@
   <key>RunAtLoad</key>
   <true/>
 
+  <key>StandardOutPath</key>
+  <string>/Users/brandon/bin/slack-calendar-status.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/brandon/bin/slack-calendar-status.log</string>
+
   <key>EnvironmentVariables</key>
   <dict>
     <key>SLACK_TOKEN</key>
