@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ca.brandonevans.slack-calendar-status</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/brandon/bin/slack-calendar-status.swift</string>
+  </array>
+
+  <!-- Run every 10 minutes -->
+  <key>StartInterval</key>
+  <integer>600</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>SLACK_TOKEN</key>
+    <string></string>
+    <key>CALENDAR</key>
+    <string></string>
+  </dict>
+</dict>
+</plist>
