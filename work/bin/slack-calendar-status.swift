@@ -33,7 +33,7 @@ extension WebAPI {
         return Promise { seal in
             let profile = User.Profile(profile: ["status_text": text,
                                                  "status_emoji": emoji,
-                                                 "status_expiration": expiration.timeIntervalSince1970])
+                                                 "status_expiration": Int(expiration.timeIntervalSince1970)])
             usersProfileSet(profile: profile, 
                             success: { _ in seal.fulfill(()) },
                             failure: { error in seal.reject(error) })
