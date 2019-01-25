@@ -2,9 +2,9 @@
 
 import Foundation
 import EventKit
-import PromiseKit // @mxcl ~> 6.5
+import PromiseKit  // @mxcl ~> 6.5
 import PMKEventKit // interstateone/EventKit == remove-mothballs
-import SKWebAPI // @RobotsAndPencils == users.profile.set
+import SKWebAPI    // @RobotsAndPencils == users.profile.set
 
 extension Date {
     var startOfDay: Date {
