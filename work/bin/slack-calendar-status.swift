@@ -3,6 +3,7 @@
 import Foundation
 import EventKit
 import PromiseKit // @mxcl ~> 6.5
+import PMKEventKit // interstateone/EventKit == remove-mothballs
 import SKWebAPI // @RobotsAndPencils == users.profile.set
 
 extension Date {
@@ -27,17 +28,6 @@ extension DateFormatter {
     }
 }
 
-extension EKEventStore {
-    func requestAccess(to entityType: EKEntityType) -> Promise<Void> {
-        return Promise { seal in
-            requestAccess(to: entityType) { granted, error in
-                if granted { seal.fulfill(()) }
-                else { seal.reject(error ?? PMKError.cancelled) }
-            }
-        }
-    }
-}
-
 extension WebAPI {
     func updateStatus(_ text: String, emoji: String, expiration: Date) -> Promise<Void> {
         return Promise { seal in
@@ -51,14 +41,13 @@ extension WebAPI {
     }
 }
 
-let store = EKEventStore()
 let slack = WebAPI(token: ProcessInfo.processInfo.environment["SLACK_TOKEN"]!)
 let calendar = ProcessInfo.processInfo.environment["CALENDAR"]
 
 firstly {
-    store.requestAccess(to: .event)
+    EKEventStore().requestAccess(to: .event)
 }
-.then { () -> Promise<Void> in
+.then { (store) -> Promise<Void> in
     let calendars = store.calendars(for: .event).filter { $0.title == calendar }
     let predicate = store.predicateForEvents(withStart: Date(), end: Date().endOfDay, calendars: calendars)
     let todaysRemainingEvents = store.events(matching: predicate)
