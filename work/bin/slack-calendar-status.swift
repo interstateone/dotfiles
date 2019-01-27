@@ -3,7 +3,7 @@
 import Foundation
 import EventKit
 import PromiseKit  // @mxcl ~> 6.5
-import PMKEventKit // interstateone/EventKit == remove-mothballs
+import PMKEventKit // @PromiseKit == master
 import SKWebAPI    // @RobotsAndPencils == users.profile.set
 
 extension Date {
@@ -41,13 +41,20 @@ extension WebAPI {
     }
 }
 
+enum Error: Swift.Error {
+    case notAuthorized
+}
+
+let store = EKEventStore()
 let slack = WebAPI(token: ProcessInfo.processInfo.environment["SLACK_TOKEN"]!)
 let calendar = ProcessInfo.processInfo.environment["CALENDAR"]
 
 firstly {
-    EKEventStore().requestAccess(to: .event)
+    store.requestAccess(to: .event)
 }
-.then { (store) -> Promise<Void> in
+.then { (authorization) -> Promise<Void> in
+    guard authorization == .authorized else { throw Error.notAuthorized }
+
     let calendars = store.calendars(for: .event).filter { $0.title == calendar }
     let predicate = store.predicateForEvents(withStart: Date(), end: Date().endOfDay, calendars: calendars)
     let todaysRemainingEvents = store.events(matching: predicate)
