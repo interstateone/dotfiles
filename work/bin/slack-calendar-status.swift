@@ -59,19 +59,23 @@ firstly {
     let predicate = store.predicateForEvents(withStart: Date(), end: Date().endOfDay, calendars: calendars)
     let todaysRemainingEvents = store.events(matching: predicate)
 
-    for event in todaysRemainingEvents {
-        if event.isAllDay && event.title.contains("PTO") {
-            let shortDate = DateFormatter.shortDate.string(from: event.endDate)
-            return slack.updateStatus("PTO until \(shortDate)", emoji: ":palm_tree:", expiration: event.endDate)
-        }
-        else if !event.isAllDay && event.availability != .free && event.startDate < Date() && event.endDate > Date() {
-            return slack.updateStatus("In a meeting", emoji: ":spiral_calendar_pad:", expiration: event.endDate)
-        }
-        else if event.isAllDay && event.title.hasPrefix("Travel: ") {
-            let destination = event.title.replacingOccurrences(of: "Travel: ", with: "")
-            let shortDate = DateFormatter.shortDate.string(from: event.endDate)
-            return slack.updateStatus("In \(destination) until \(shortDate)", emoji: ":airplane:", expiration: event.endDate)
-        }
+    if let pto = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.contains("PTO") }) {
+        let shortDate = DateFormatter.shortDate.string(from: pto.endDate)
+        return slack.updateStatus("PTO until \(shortDate)", 
+                                  emoji: ":palm_tree:",
+                                  expiration: pto.endDate)
+    }
+    else if let meeting = todaysRemainingEvents.sorted(by: { $0.startDate < $1.startDate }).first(where: { !$0.isAllDay && $0.availability != .free && $0.startDate < Date() && $0.endDate > Date() }) {
+        return slack.updateStatus("In a meeting",
+                                  emoji: ":spiral_calendar_pad:",
+                                  expiration: meeting.endDate)
+    }
+    else if let travel = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.hasPrefix("Travel: ") }) {
+        let destination = travel.title.replacingOccurrences(of: "Travel: ", with: "")
+        let shortDate = DateFormatter.shortDate.string(from: travel.endDate)
+        return slack.updateStatus("In \(destination) until \(shortDate)",
+                                  emoji: ":airplane:",
+                                  expiration: travel.endDate)
     }
 
     exit(0)
