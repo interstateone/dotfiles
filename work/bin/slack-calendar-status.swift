@@ -3,8 +3,8 @@
 import Foundation
 import EventKit
 import PromiseKit  // @mxcl ~> 6.5
-import PMKEventKit // @PromiseKit == master
-import SlackKit    // @RobotsAndPencils == add-user-profile-status
+import PMKEventKit // @PromiseKit ~> 4.0
+import SlackKit    // @pvzig == c1a89ee
 
 extension Date {
     var startOfDay: Date {
