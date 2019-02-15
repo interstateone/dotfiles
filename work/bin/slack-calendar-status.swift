@@ -4,7 +4,7 @@ import Foundation
 import EventKit
 import PromiseKit  // @mxcl ~> 6.5
 import PMKEventKit // @PromiseKit == master
-import SKWebAPI    // @RobotsAndPencils == users.profile.set
+import SlackKit    // @RobotsAndPencils == add-user-profile-status
 
 extension Date {
     var startOfDay: Date {
