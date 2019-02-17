@@ -1,5 +1,20 @@
 #! /usr/bin/swift sh
 
+// slack-calendar-status.swift
+// Author: Brandon Evans (https://github.com/interstateone)
+//
+// Updates your Slack status based on events in your calendar.
+// Installs its own launch agent so it runs in the background periodically.
+//
+// Requires https://github.com/mxcl/swift-sh
+//
+// Requires a Slack token with permission to set your status
+// Set it as a SLACK_TOKEN environment variable
+// A legacy token is deprecated but the easiest way to do this: 
+//   https://api.slack.com/custom-integrations/legacy-tokens
+//
+// You can specify a specific calendar to use with the CALENDAR environment variable.
+
 import Foundation
 import EventKit
 import PromiseKit  // @mxcl ~> 6.5
