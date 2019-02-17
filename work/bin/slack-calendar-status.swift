@@ -68,24 +68,28 @@ let desiredCalendar = ProcessInfo.processInfo.environment["CALENDAR"]
 
 // MARK: - Launch agent installation
 
-let agent = LaunchAgent(label: "ca.brandonevans.slack-calendar-status",
-                        program: "/Users/brandon/bin/slack-calendar-status.swift")
-agent.startInterval = 60
-agent.runAtLoad = true
-agent.standardOutPath = "/Users/brandon/bin/slack-calendar-status.log"
-agent.standardErrorPath = "/Users/brandon/bin/slack-calendar-status.error.log"
-agent.environmentVariables = ["PATH": "/usr/bin:/usr/local/bin",
-                              "SLACK_TOKEN": slackToken]
-if let calendar = desiredCalendar {
-    agent.environmentVariables?["CALENDAR"] = calendar
-}
+let label = "ca.brandonevans.slack-calendar-status"
 
-do {
-    try LaunchControl.shared.write(agent)
-    try LaunchControl.shared.load(agent)
-}
-catch {
-    print("Continuing past LaunchAgent failure: " + String(describing: error))
+if (try? LaunchControl.shared.read(agent: "\(label).plist")) == nil {
+    let agent = LaunchAgent(label: label,
+                            program: "/Users/brandon/bin/slack-calendar-status.swift")
+    agent.startInterval = 60
+    agent.runAtLoad = true
+    agent.standardOutPath = "/Users/brandon/bin/slack-calendar-status.log"
+    agent.standardErrorPath = "/Users/brandon/bin/slack-calendar-status.error.log"
+    agent.environmentVariables = ["PATH": "/usr/bin:/usr/local/bin",
+                                "SLACK_TOKEN": slackToken]
+    if let calendar = desiredCalendar {
+        agent.environmentVariables?["CALENDAR"] = calendar
+    }
+
+    do {
+        try LaunchControl.shared.write(agent)
+        try LaunchControl.shared.load(agent)
+    }
+    catch {
+        print("Continuing past LaunchAgent failure: " + String(describing: error))
+    }
 }
 
 // MARK: - The important bit
