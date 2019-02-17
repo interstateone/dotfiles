@@ -5,6 +5,9 @@ import EventKit
 import PromiseKit  // @mxcl ~> 6.5
 import PMKEventKit // @PromiseKit ~> 4.0
 import SlackKit    // @pvzig == c1a89ee
+import LaunchAgent // @interstateone == write-to-label-filename
+
+// MARK: - Extensions and support code
 
 extension Date {
     var startOfDay: Date {
@@ -45,9 +48,35 @@ enum Error: Swift.Error {
     case notAuthorized
 }
 
+let slackToken = ProcessInfo.processInfo.environment["SLACK_TOKEN"]!
+let desiredCalendar = ProcessInfo.processInfo.environment["CALENDAR"]
+
+// MARK: - Launch agent installation
+
+let agent = LaunchAgent(label: "ca.brandonevans.slack-calendar-status",
+                        program: "/Users/brandon/bin/slack-calendar-status.swift")
+agent.startInterval = 60
+agent.runAtLoad = true
+agent.standardOutPath = "/Users/brandon/bin/slack-calendar-status.log"
+agent.standardErrorPath = "/Users/brandon/bin/slack-calendar-status.error.log"
+agent.environmentVariables = ["PATH": "/usr/bin:/usr/local/bin",
+                              "SLACK_TOKEN": slackToken]
+if let calendar = desiredCalendar {
+    agent.environmentVariables?["CALENDAR"] = calendar
+}
+
+do {
+    try LaunchControl.shared.write(agent)
+    try LaunchControl.shared.load(agent)
+}
+catch {
+    print("Continuing past LaunchAgent failure: " + String(describing: error))
+}
+
+// MARK: - The important bit
+
 let store = EKEventStore()
-let slack = WebAPI(token: ProcessInfo.processInfo.environment["SLACK_TOKEN"]!)
-let calendar = ProcessInfo.processInfo.environment["CALENDAR"]
+let slack = WebAPI(token: slackToken)
 
 firstly {
     store.requestAccess(to: .event)
@@ -55,8 +84,10 @@ firstly {
 .then { (authorization) -> Promise<Void> in
     guard authorization == .authorized else { throw Error.notAuthorized }
 
-    let calendars = store.calendars(for: .event).filter { $0.title == calendar }
-    let predicate = store.predicateForEvents(withStart: Date(), end: Date().endOfDay, calendars: calendars)
+    let calendars = store.calendars(for: .event).filter { $0.title == desiredCalendar }
+    let predicate = store.predicateForEvents(withStart: Date(), 
+                                             end: Date().endOfDay,
+                                             calendars: calendars.isEmpty ? nil : calendars)
     let todaysRemainingEvents = store.events(matching: predicate)
 
     if let pto = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.contains("PTO") }) {
