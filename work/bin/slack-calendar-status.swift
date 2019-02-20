@@ -20,7 +20,7 @@ import EventKit
 import PromiseKit  // @mxcl ~> 6.5
 import PMKEventKit // @PromiseKit ~> 4.0
 import SlackKit    // @pvzig == c1a89ee
-import LaunchAgent // @interstateone == write-to-label-filename
+import LaunchAgent // @emorydunn == df81b83
 
 // MARK: - Extensions and support code
 
