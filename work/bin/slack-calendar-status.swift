@@ -59,6 +59,12 @@ extension WebAPI {
     }
 }
 
+extension EKEvent {
+    var isMine: Bool {
+        return organizer == nil || (organizer?.isCurrentUser == true)
+    }
+}
+
 enum Error: Swift.Error {
     case notAuthorized
 }
@@ -109,7 +115,7 @@ firstly {
                                              calendars: calendars.isEmpty ? nil : calendars)
     let todaysRemainingEvents = store.events(matching: predicate)
 
-    if let pto = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.contains("PTO") }) {
+    if let pto = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.contains("PTO") && $0.isMine }) {
         let shortDate = DateFormatter.shortDate.string(from: pto.endDate)
         return slack.updateStatus("PTO until \(shortDate)", 
                                   emoji: ":palm_tree:",
@@ -120,7 +126,7 @@ firstly {
                                   emoji: ":spiral_calendar_pad:",
                                   expiration: meeting.endDate)
     }
-    else if let travel = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.hasPrefix("Travel: ") }) {
+    else if let travel = todaysRemainingEvents.first(where: { $0.isAllDay && $0.title.hasPrefix("Travel: ") && $0.isMine }) {
         let destination = travel.title.replacingOccurrences(of: "Travel: ", with: "")
         let shortDate = DateFormatter.shortDate.string(from: travel.endDate)
         return slack.updateStatus("In \(destination) until \(shortDate)",
