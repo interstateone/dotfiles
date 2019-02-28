@@ -9,10 +9,12 @@
 #        Second invocation stops recording and reveals the recording in the finder
 #
 
+pid_file="$HOME/.jeff.pid"
+
 # If the simulator is recording, send SIGINT (ctrl+c) to the child process to stop it
-if [[ -e .jeff.pid ]]; then
-    kill -INT $(cat ".jeff.pid")
-    rm .jeff.pid
+if [[ -e "$pid_file" ]]; then
+    kill -INT $(cat "$pid_file")
+    rm "$pid_file"
     exit 0
 fi
 
@@ -31,9 +33,9 @@ fi
 # Record the simulator, running the process in the background
 xcrun simctl io booted recordVideo --type=mp4 "$temp_video" &
 # Save the pid of the background recording in order to stop it later
-echo $! > .jeff.pid
+echo $! > "$pid_file"
 # If this script gets a SIGINT, clean up and exit
-trap "rm .jeff.pid; rm ${temp_video}; exit 0" INT
+trap "rm \"$pid_file\"; rm ${temp_video}; exit 0" INT
 # Wait here until the background recording process completes
 wait
 
