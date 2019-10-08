@@ -1,0 +1,20 @@
+#!/bin/bash
+
+IFS=$'\n' read -d '' -r -a files
+number_of_files=${#files[@]}
+
+header="|"
+separator="|"
+cells="|"
+
+start=0
+for (( index=$start; index<$number_of_files; index++ )); do
+    header+=" header |"
+    separator+=" ------ |"
+    cells+=" ${files[$index]} |"
+done
+
+echo $header
+echo $separator
+echo $cells
+
