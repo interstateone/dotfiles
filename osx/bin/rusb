@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# rusb
+# "Reset USB device"
+#
+# Power cycle (or at least cycle the data connection) a USB device with fuzzy search
+# E.g. Run rusb yeti
+# E.g. Run rusb, then type a device name like "yeti", then return
+#
+# Requires:
+#   - uhubctl: https://github.com/mvp/uhubctl
+#   - fzf: https://github.com/junegunn/fzf
+
+uhubctl \
+| awk '{ if ($0~/hub/) hub=$0; print hub "\t" $0;}' \
+| if [ -z "$1" ]; then fzf; else fzf -f "$1"; fi \
+| sed -n -E "s/Current status for hub ([-\.0-9]*).*\]	  Port ([0-9]*):.*/-l \1 -p \2/p" \
+| xargs uhubctl -a 2
