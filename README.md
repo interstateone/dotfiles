@@ -1,6 +1,10 @@
 # Dotfiles
 
-`git clone git@github.com:interstateone/dotfiles.git && cd dotfiles`
+```
+git clone git@github.com:interstateone/dotfiles.git && \ 
+git submodule update --init --recursive && \
+cd dotfiles
+```
 
 Use GNU Stow to manage the installation of configuration packages.
 
