@@ -1,148 +1,95 @@
-tap 'caskroom/cask'
-tap 'crisidev/homebrew-chunkwm'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
-tap 'homebrew/dupes'
 tap 'homebrew/services'
-tap 'homebrew/versions'
-tap 'koekeishiya/formulae'
-tap 'kylef/formulae'
-tap 'neonichu/formulae'
 
-brew 'aspell', args: ['with-lang-en', 'with-lang-fr']
-brew 'carthage'
-brew 'chisel'
-brew 'colordiff'
-brew 'crisidev/homebrew-chunkwm/chunkwm', args: ['HEAD']
+brew 'aria2'
+brew 'bat'
 brew 'ctags'
 brew 'curl'
-brew 'entr'
-brew 'ffmpeg'
 brew 'fzf'
 brew 'gifsicle'
 brew 'git'
 brew 'git-lfs'
-brew 'gnu-typist'
 brew 'gnupg2'
-brew 'gnutls'
-brew 'gpg-agent'
-brew 'highlight'
-brew 'htop'
 brew 'hugo'
-brew 'imagemagick'
+brew 'jid'
 brew 'jq'
-brew 'koekeishiya/formulae/khd'
-brew 'kylef/formulae/swiftenv'
-brew 'lame'
-brew 'leiningen'
-brew 'llvm'
-brew 'lua'
 brew 'mas'
-brew 'mogenerator'
-brew 'mongodb', restart_service: :changed
-brew 'mpc'
-brew 'mpd', restart_service: :changed
-brew 'ncmpcpp'
-brew 'node'
-brew 'openssl'
-brew 'perl'
-brew 'pinentry'
-brew 'pkg-config'
-brew 'postgresql', restart_service: :changed
-brew 'python'
 brew 'ranger'
-brew 'rbenv'
-brew 'rbenv-bundler'
-brew 'readline'
-brew 'reattach-to-user-namespace'
-brew 'redis', restart_service: :changed
 brew 'ripgrep'
-brew 'ruby'
-brew 'ruby-build'
-brew 'sassc'
-brew 'sourcekitten'
-brew 'sourcery'
-brew 'sqlite'
+brew 'shellcheck'
 brew 'stow'
+brew 'kylef/formulae/swiftenv'
 brew 'swiftlint'
-brew 'tarsnap'
 brew 'tig'
-brew 'tmux', args: ['HEAD']
 brew 'trash'
 brew 'tree'
-brew 'uncrustify'
 brew 'vim'
-brew 'wget'
-brew 'xz'
+brew 'robotsandpencils/made/xcodes'
 
 cask 'alfred'
-cask 'arq'
-cask 'atom'
-cask 'bartender'
-cask 'bettertouchtool'
-cask 'brisk'
+# Waiting at version 5 until version 7 is released
+# cask 'arq'
 cask 'carbon-copy-cloner'
+cask 'catch'
 cask 'charles'
 cask 'dash'
 cask 'deckset'
 cask 'docker'
-cask 'duet'
+cask 'fantastical'
 cask 'flume'
 cask 'flux'
 cask 'google-chrome'
-cask 'handbrake'
-cask 'highsierramediakeyenabler'
-cask 'hopper-disassembler'
 cask 'iina'
 cask 'imageoptim'
-cask 'istat-menus'
-cask 'jetbrains-toolbox'
 cask 'karabiner-elements'
 cask 'keybase'
+cask 'macmediakeyforwarder'
 cask 'monodraw'
-cask 'omnidisksweeper'
+cask 'muzzle'
+cask 'netnewswire'
 cask 'openemu'
 cask 'owncloud'
 cask 'paw'
 cask 'pdf-expert'
-cask 'postman'
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'qlprettypatch'
 cask 'qlstephen'
 cask 'quickhue'
 cask 'quicklook-json'
+cask 'sf-symbols'
 cask 'sketch'
-cask 'skype'
-cask 'sourcetree'
 cask 'transmission'
 cask 'transmit'
 cask 'visual-studio-code'
-cask 'zeplin'
 
 mas '1Blocker', id: 1107421413
 mas '1Password 7', id: 1333542190
+mas 'Apple Developer', id: 640199958
 mas 'Bear', id: 1091189122
-mas 'Compressor', id: 424390742
+mas 'Boop', id: 1518425043
+mas 'Cardhop', id: 1290358394
 mas 'DaisyDisk', id: 411643860
 mas 'Deliveries: a package tracker', id: 924726344
 mas 'Final Cut Pro', id: 424389933
 mas 'GIF Brewery 3', id: 1081413713
-mas 'Haskell — Development Platform', id: 841285201
-mas 'Hues', id: 411811718
-mas 'iFlicks 2', id: 731062389
-mas 'Kaleidoscope', id: 587512244
+mas 'Keep It', id: 1272768911
 mas 'Keynote', id: 409183694
+mas 'Mindnode', id: 1289197285
 mas 'Monosnap', id: 540348655
 mas 'Noizio', id: 928871589
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Patterns', id: 429449079
 mas 'Pixelmator', id: 407963104
-mas 'Realm Browser', id: 1007457278
+mas 'Pixelmator Pro', id: 1289583905
 mas 'Redacted', id: 984968384
-mas 'Reeder', id: 880001334
+mas 'Shush - Microphone Manager', id: 496437906
+mas 'Soulver 2', id: 413965349
 mas 'The Unarchiver', id: 425424353
+mas 'Tot', id: 1491071483
 mas 'Tweetbot 3 for Twitter', id: 1384080005
+mas 'Twitter', id: 1482454543
 mas 'xScope', id: 889428659
 
